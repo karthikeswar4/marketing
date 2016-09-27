@@ -1,0 +1,140 @@
+<div class="users" ng-controller="UserDetailController">
+	<div class="row">
+		<div class="col-md-12 header">
+			<div class="job-header row padding background-app-blue color-white">
+				<span class="h4"><span ng-bind="'CREATE_EDIT_USER' | translate"></span></span>
+			</div>
+		</div>
+		<div fixed-container fixed-attr="{ orientation: 'BOTTOM' }">
+			<div class="row">
+				<form name="userForm" class="screen-only">
+					<div class="col-md-12 job-content padding vertical-margin">
+						<div class="col-md-12"><span class="error" ng-bind="errormessage"></span></div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class=""><span ng-bind="'FIRST_NAME' | translate"></span></label>
+								<input class="form-control" type="text" id="name" ng-model="data.firstname" field-security="users" field-security-data-id="data.id">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class=""><span ng-bind="'LAST_NAME' | translate"></span></label>
+								<input class="form-control" type="text" id="name" ng-model="data.lastname" field-security="users" field-security-data-id="data.id">
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class=""><span ng-bind="'EMAIL' | translate"></span></label>
+								<input class="form-control" type="text" id="email" ng-model="data.email" field-security="users" field-security-data-id="data.id">
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class=""><span ng-bind="'USER_NAME' | translate"></span></label>
+								<input class="form-control" type="text" id="user_name" ng-model="data.username" field-security="users" field-security-data-id="data.id">
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class=""><span ng-bind="'PASSWORD' | translate"></span></label>
+								<input class="form-control" type="password" id="password" ng-model="data.password" field-security="users" field-security-data-id="data.id">
+							</div>
+						</div>
+						<div class="col-md-12 cursor-pointer no-top-margin no-padding"  ng-init="showPersonalDetails = 'true'" ng-click="showPersonalDetails = !showPersonalDetails">
+							<div class="section-header padding h4 background-app-tint-orange">
+								<span><span ng-bind="'PERSONAL_DETAIL' | translate"></span></span>
+								<i class="glyphicon glyphicon-chevron-down pull-right"  ng-if="!showPersonalDetails"></i>
+								<i class="glyphicon glyphicon-chevron-up pull-right"  ng-if="showPersonalDetails"></i>
+							</div>
+						</div>
+						<div class="col-md-12 no-padding" ng-show="showPersonalDetails">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'DESIGNATION' | translate"></span></label>
+									<input class="form-control" type="text" id="designation" ng-model="data.designation" field-security="users" field-security-data-id="data.id">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'DOB' | translate"></span></label>
+									<input class="form-control" type="text" id="customer_dob" ng-model="data.dateOfBirth" field-security="users" field-security-data-id="data.id">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 cursor-pointer no-top-margin no-padding"  ng-init="showContactDetails = 'true'" ng-click="showContactDetails = !showContactDetails">
+							<div class="section-header padding h4 background-app-tint-orange">
+								<span><span ng-bind="'CONTACT_DETAIL' | translate"></span></span>
+								<i class="glyphicon glyphicon-chevron-down pull-right"  ng-if="!showContactDetails"></i>
+								<i class="glyphicon glyphicon-chevron-up pull-right"  ng-if="showContactDetails"></i>
+							</div>
+						</div>
+						<div class="col-md-12 no-padding" ng-show="showContactDetails">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'PHONE' | translate"></span></label>
+									<input class="form-control" type="text" id="phone" ng-model="data.mobile" field-security="users" field-security-data-id="data.id">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'ADDRESS_LINE1' | translate"></span></label>
+									<input class="form-control" type="text" ng-model="data.address1" field-security="users" field-security-data-id="data.id">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'ADDRESS_LINE2' | translate"></span></label>
+									<input class="form-control" type="text" ng-model="data.address2" field-security="users" field-security-data-id="data.id">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'ADDRESS_LINE3' | translate"></span></label>
+									<input class="form-control" type="text" ng-model="data.address3" field-security="users" field-security-data-id="data.id">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'CITY' | translate"></span></label>
+									<input class="form-control" type="text" ng-model="data.city" field-security="users" field-security-data-id="data.id">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'STATE' | translate"></span></label>
+									<input class="form-control" type="text" ng-model="data.state" field-security="users" field-security-data-id="data.id">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'COUNTRY' | translate"></span></label>
+									<input class="form-control" type="text" ng-model="data.country" field-security="users" field-security-data-id="data.id">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'PINCODE' | translate"></span></label>
+									<input class="form-control" type="text" id="pincode" ng-model="data.pincode" field-security="users" field-security-data-id="data.id">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'ROLE' | translate"></span></label>
+									<auto-complete ng-model="data.role" display-field="name" value-field="id" search-url="api/role/getAllRoles" selected-item="roleObj"></auto-complete>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 text-align-right background-color-white lead-button-bar" fixed-bar>
+							<button class="btn btn-primary" ng-click="goBack()" type="button"><span ng-bind="'CANCEL' | translate"></span></button>
+							<button class="btn btn-primary" ng-click="saveUser()"><span ng-bind="'SAVE' | translate"></span></button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	

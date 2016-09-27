@@ -1,0 +1,106 @@
+/*===============WHITE=============*/
+.background-color-white {
+	background-color: #FFF !important;
+}
+.color-white {
+	color: #FFF !important;
+}
+a.color-white:hover {
+	color: #FFF !important;
+}
+.border-color-white {
+	border-color: #FFF !important;
+}
+.border-after-color-white:after {
+	border-color: #FFF;
+}
+.search-table table thead, .colored-table table thead {
+	color: #FFF !important;
+}
+/*===============WHITE=============*/
+
+/*===============GRAY=============*/
+.background-app-gray {
+	background-color: rgba(204, 204, 204, 1) !important;
+}
+.color-app-gray {
+	color: rgba(204, 204, 204, 1) !important;
+}
+a.color-app-gray:hover {
+	color: rgba(204, 204, 204, 1) !important;
+}
+.border-color-app-gray {
+	border-color: rgba(204, 204, 204, 1) !important;
+}
+.border-after-color-app-gray:after {
+	border-color: rgba(204, 204, 204, 1);
+}
+.search-table tr td, .colored-table  tr td {
+	border-color: rgba(204, 204, 204, 1);
+}
+.form-group {
+	border-color: rgba(204, 204, 204, 1);
+}
+.form-group > label {
+	color: rgba(160, 160, 160, 1);
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background: rgba(204, 204, 204, 0.2);
+}
+/*===============GRAY=============*/
+
+/*===============BLUE=============*/
+.background-app-blue {
+	background-color: rgba(96, 175, 254, 1) !important;
+}
+.color-app-blue {
+	color: rgba(96, 175, 254, 1) !important;
+}
+a.color-app-blue:hover {
+	color: rgba(96, 175, 254, 1) !important;
+}
+.border-color-app-blue {
+	border-color: rgba(96, 175, 254, 1) !important;
+}
+.border-after-color-app-blue:after {
+	border-color: rgba(96, 175, 254, 1);
+}
+/*===============BLUE=============*/
+
+/*===============DARK BLUE=============*/
+.background-app-dark-blue {
+	background-color: rgba(0, 0, 102, 1) !important;
+}
+.color-app-dark-blue {
+	color: rgba(0, 0, 102, 1) !important;
+}
+a.color-app-dark-blue:hover {
+	color: rgba(0, 0, 102, 1) !important;
+}
+.border-color-app-dark-blue {
+	border-color: rgba(0, 0, 102, 1) !important;
+}
+.border-before-color-app-dark-blue:before {
+	border-color: rgba(0, 0, 102, 1);
+}
+.border-after-color-app-dark-blue:after {
+	border-color: rgba(0, 0, 102, 1);
+}
+.search-table table thead, .colored-table table thead {
+	background-color: rgba(0, 0, 102, 1) !important;
+}
+/*===============DARK BLUE=============*/
+
+/*===============TINT BLUE=============*/
+.background-app-tint-blue {
+	background-color: rgba(204, 204, 255, 1) !important;
+}
+/*===============TINT BLUE=============*/
+
+/*===============TINT ORANGE=============*/
+.background-app-tint-orange {
+	background-color: rgba(255,242,229, 1) !important;
+}
+/*===============TINT ORANGE=============*/
+
+

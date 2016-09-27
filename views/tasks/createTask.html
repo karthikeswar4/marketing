@@ -1,0 +1,43 @@
+<div oc-lazy-load="{name: 'app', files: ['js/controllers/tasks/createTaskController.js']}">
+	<div ng-controller="CreateTaskController">
+		<div class="row">
+			<div class="col-md-12">
+				<header>
+					<div class="col-md-12 vertical-padding background-app-blue">
+						<h4 translate="CREATE_TASK"></h4>
+					</div>
+				</header>
+				<main>
+					<div class="col-md-12 vertical-padding">
+						<button class="btn btn-primary" translate="CREATE" ng-click="createTask()"></button>
+						<button class="btn btn-primary" translate="CANCEL" ng-click="closeModalDialog()"></button>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label translate="TITLE"></label>
+							<input type="text" class="form-control" ng-model="task.title">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label translate="DUE_DATE"></label>
+							<input type="text" class="form-control" ng-model="task.due_date" date-time-picker>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label translate="ASSIGNED_TO"></label>
+							<auto-complete ng-model="task.assigned_to" display-field="(firstname || '' )+ ' ' + (lastname || '')" value-field="id" search-url="api/user/getAllUsersAutoSuggest"></auto-complete>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label translate="DESCRIPTION"></label>
+							<textarea class="form-control no-resize" ng-model="task.description"></textarea>
+						</div>
+					</div>
+				</main>
+			</div>
+		</div>
+	</div>
+</div>

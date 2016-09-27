@@ -1,0 +1,41 @@
+<div class="leads" ng-controller="LeadsImportController">
+	<div class="row">
+		<div class="col-md-12">
+			<main class="">
+				<div class="page-content">
+					<div class="search-wrapper">
+						<form class="search-filter" action="javascript:;" ng-submit="searchImports()">
+							<div class="search-header row horz-padding background-app-blue">
+								<span class="h3 color-white vertical-margin display-inline-block" translate="IMPORT_LEADS"></span>
+							</div>
+						</form>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="col-md-6">
+									<div class="form-group" file-selection ng-model="data.selectedFile"></div>				
+								</div>
+								<div class="col-md-12">
+									<div>
+										<button class="btn btn-primary" translate="NEXT" ng-click="importFile()" ng-disabled="config.importing || config.imported || importFields.id"></button>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12 vertical-padding" ng-if="importFields.id">
+								<div class="col-md-4" ng-repeat="header in headers">
+									<div class="form-group">
+										<label class="" translate="{{ header.name | translate }}"></label>
+										<select class="form-control" ng-options="value as key | translate for (key, value) in leadFieldsList" ng-model="header.ass_field"></select>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<button class="btn btn-primary" translate="SUBMIT" ng-click="mapImportedFile()"></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+</div>
+	

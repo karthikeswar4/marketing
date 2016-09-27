@@ -1,0 +1,88 @@
+<div class="campaign" ng-controller="CampaignDetailController">
+	<div class="row">
+		<div class="col-md-12 job-header">
+			<div class="job-header row padding background-app-blue color-white">
+				<span class="h4" translate="EDIT_CAMPAIGN"></span>
+			</div>
+		</div>
+		<div fixed-container fixed-attr="{ orientation: 'BOTTOM' }">
+			<div class="row no-margin">
+				<form name="campaignForm" class="screen-only">
+					<div class="col-md-12 action-bar padding">
+						<button type="button" class="btn btn-primary" ng-click="goBack()" translate="BACK"></button>
+						<button type="button" class="btn btn-primary" ng-click="closeCampaign()" translate="CLOSE_CAMPAIGN" ng-hide="'Closed' == data.status"></button>
+					</div>
+					<div class="col-md-12 job-content no-padding">
+						<div class="col-md-12"><span class="error" ng-bind="errormessage"></span></div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="CAMPAIGN_ID"></label>
+								<input class="form-control" type="text" ng-model="data.id" disabled field-security="leads" field-security-data-id="data.id">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="TITLE"></label>
+								<input class="form-control" type="text" ng-model="data.title" field-security="leads" field-security-data-id="data.id" ng-required>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="STATUS"></label>
+								<input class="form-control" type="text" ng-model="data.status" field-security="leads" field-security-data-id="data.id" ng-disabled="true">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="CAMPAIGN_START_DATE"></label>
+								<input class="form-control" type="text" ng-model="data.campaign_start_date"  date-picker field-security="leads" field-security-data-id="data.id">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="CAMPAIGN_END_DATE"></label>
+								<input class="form-control" type="text" ng-model="data.campaign_end_date"  date-picker field-security="leads" field-security-data-id="data.id">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="ASSIGNED_TO"></label>
+								<auto-complete ng-model="data.assigned_to" display-field="(firstname || '' )+ ' ' + (lastname || '')" value-field="id" search-url="api/user/getAllUsersAutoSuggest"></auto-complete>
+							</div>
+						</div>
+	                    <div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="COMMENTS"></label>
+								<input class="form-control no-resize" type="text" ng-model="data.additional_info" field-security="leads" field-security-data-id="data.id">
+							</div>
+						</div>
+												
+						<div class="col-md-12 cursor-pointer no-top-margin no-padding"  ng-init="showOpportunitiesDetails = 'true'" ng-click="showOpportunitiesDetails = !showOpportunitiesDetails">
+							<div class="section-header padding h4 background-app-tint-orange">
+								<span translate="OPPORTUNITIES_DETAIL"></span>
+								<i class="glyphicon glyphicon-chevron-down pull-right"  ng-if="!showOpportunitiesDetails"></i>
+								<i class="glyphicon glyphicon-chevron-up pull-right"  ng-if="showOpportunitiesDetails"></i>
+							</div>
+						</div>
+						<div class="col-md-12 no-padding" ng-show="showOpportunitiesDetails">
+							<div class="col-md-12 text-align-right lead-button-bar" ng-show="data.id">
+								<button class="btn btn-primary" ng-click="openCreateLead()" translate="CREATE_LEAD"></button>
+							</div>								
+							 <div class="col-md-6 vertical-padding" ng-repeat="lead in campaignLeads" ng-click="openLead(lead)">
+							 	<div class="col-md-12 campaign-lead background-app-gray">
+							 		<span ng-bind="lead.title" class="pull-left"></span>
+							 		<span ng-bind="lead.status" class="pull-right"></span>
+							 	</div>
+							</div>
+						</div>
+						<div class="col-md-12 text-align-right background-color-white lead-button-bar" fixed-bar>
+							<button class="btn btn-primary" ng-click="goBack()" type="button" translate="CANCEL"></button>
+							<button class="btn btn-primary" ng-click="saveCampaign()" translate="SAVE"></button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	

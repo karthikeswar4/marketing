@@ -1,0 +1,120 @@
+<div ng-controller="DashboardController" class="row dashboard">
+	<div class="col-md-12">
+		<div class="col-md-9">
+			<div class="col-md-6 border-color-app-blue dashboard-section padding dashboard-section-elem">
+				<div class="full-width full-height dash-elem horz-padding">
+					<div class="full-height full-width clearfix">
+						<div pie-chart="leadStats" options="chartOptions"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 border-color-app-blue dashboard-section dashboard-section-elem">
+				<div class="full-width full-height dash-elem padding">
+					<span translate="RECENTLY_ASSIGNED_LEADS" class="heading"></span>
+					<div class="vertical-padding colored-table">
+						<table class="full-width">
+							<thead>
+								<tr>
+									<th class="text-center" translate="SUBJECT"></th>
+									<th class="text-center" translate="DUE_DATE"></th>
+									<th class="text-center" translate="MODE"></th>
+									<th class="text-center" translate="PRIORITY"></th>
+									<th class="text-center" translate="TYPE"></th>
+									<th class="text-center" translate="FOLLOWER"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="lead in leadsList" ng-click="openLead(lead)" class="cursor-pointer">
+									<td ng-bind="lead.title"></td>
+									<td ng-bind="lead.due_date"></td>
+									<td ng-bind="lead.mode"></td>
+									<td ng-bind="lead.priority"></td>
+									<td ng-bind="lead.type"></td>
+									<td ng-bind="lead.follower"></td>
+								</tr>
+								<tr ng-if="leadsList.length == 0">
+									<td colspan="6" translate="NO_LEADS_AVAILABLE"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 border-color-app-blue dashboard-section dashboard-section-elem">
+				<div class="full-width full-height dash-elem padding">
+					<span translate="OVERDUE_TASK" class="heading"></span>
+					<div class="vertical-padding colored-table">
+						<table class="full-width">
+							<thead>
+								<tr>
+									<th class="text-center" translate="SUBJECT"></th>
+									<th class="text-center" translate="DUE_DATE"></th>
+									<th class="text-center" translate="MODE"></th>
+									<th class="text-center" translate="PRIORITY"></th>
+									<th class="text-center" translate="TYPE"></th>
+									<th class="text-center" translate="FOLLOWER"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="task in overdueTasksList" ng-click="openTask(task)" class="cursor-pointer">
+									<td ng-bind="task.title"></td>
+									<td ng-bind="task.due_date"></td>
+									<td ng-bind="task.mode"></td>
+									<td ng-bind="task.priority"></td>
+									<td ng-bind="task.type"></td>
+									<td ng-bind="task.follower"></td>
+								</tr>
+								<tr ng-if="overdueTasksList.length == 0">
+									<td colspan="6" translate="NO_OVERDUE_TASK_AVAILABLE"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 border-color-app-blue dashboard-section dashboard-section-elem">
+				<div class="full-width full-height dash-elem padding">
+					<span translate="OPEN_TASK" class="heading"></span>
+					<div class="vertical-padding colored-table">
+						<table class="full-width">
+							<thead>
+								<tr>
+									<th class="text-center" translate="SUBJECT"></th>
+									<th class="text-center" translate="DUE_DATE"></th>
+									<th class="text-center" translate="MODE"></th>
+									<th class="text-center" translate="PRIORITY"></th>
+									<th class="text-center" translate="TYPE"></th>
+									<th class="text-center" translate="FOLLOWER"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="task in tasksList" ng-click="openTask(task)" class="cursor-pointer">
+									<td ng-bind="task.title"></td>
+									<td ng-bind="task.due_date"></td>
+									<td ng-bind="task.mode"></td>
+									<td ng-bind="task.priority"></td>
+									<td ng-bind="task.type"></td>
+									<td ng-bind="task.follower"></td>
+								</tr>
+								<tr ng-if="tasksList.length == 0">
+									<td colspan="6" translate="NO_OPEN_TASK_AVAILABLE"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="vert-padding dashboard-section border-color-app-blue dashboard-activities">
+				<div class="full-width full-height dash-elem padding">
+					<span translate="RECENT_ACTIVITIES" class="heading font-weight-bold"></span>
+					<div class="vertical-padding">
+						<div ng-repeat="activity in activities">
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>

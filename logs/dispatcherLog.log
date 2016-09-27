@@ -1,0 +1,79 @@
+2016-09-26T20:50:46+02:00 [Dispatcher] Invoking Service Start::secured/lead/getAllLeads
+2016-09-26T20:50:46+02:00 [Dispatcher] Invoking Service End::secured/lead/getAllLeads
+2016-09-26T20:50:48+02:00 [Dispatcher] Invoking Service Start::secured/lead/getLead
+2016-09-26T20:50:48+02:00 [Dispatcher] Invoking Service End::secured/lead/getLead
+2016-09-26T20:50:48+02:00 [Dispatcher] Invoking Service Start::secured/task/getAllTasksByLead
+2016-09-26T20:50:48+02:00 [Dispatcher] Invoking Service End::secured/task/getAllTasksByLead
+2016-09-27T17:49:09+02:00 [Dispatcher] Invoking Service Start::secured/admin/getAllNotifications
+2016-09-27T17:49:09+02:00 [Dispatcher] Invoking Service Start::job/getJobNotifications
+2016-09-27T17:49:09+02:00 [Dispatcher] Invoking Service Start::login/authenticate
+2016-09-27T17:49:09+02:00 [Dispatcher] Exception while invoking job/getJobNotifications
+2016-09-27T17:49:09+02:00 [Dispatcher] Invoking Service End::job/getJobNotifications
+2016-09-27T17:49:09+02:00 [Dispatcher] The service requires authenticationsecured/admin/getAllNotifications
+2016-09-27T17:49:09+02:00 [Dispatcher] Invoking Service End::secured/admin/getAllNotifications
+2016-09-27T17:49:09+02:00 [Dispatcher] Exception while invoking login/authenticate
+2016-09-27T17:49:09+02:00 [Dispatcher] Invoking Service End::login/authenticate
+2016-09-27T17:53:27+02:00 [Dispatcher] Invoking Service Start::login/doLogin
+2016-09-27T17:53:27+02:00 [Dispatcher] Invoking Service End::login/doLogin
+2016-09-27T17:53:27+02:00 [Dispatcher] Invoking Service Start::job/getJobNotifications
+2016-09-27T17:53:27+02:00 [Dispatcher] Exception while invoking job/getJobNotifications
+2016-09-27T17:53:27+02:00 [Dispatcher] Invoking Service End::job/getJobNotifications
+2016-09-27T17:53:27+02:00 [Dispatcher] Invoking Service Start::secured/admin/getAllNotifications
+2016-09-27T17:53:27+02:00 [Dispatcher] Exception while invoking secured/admin/getAllNotifications
+2016-09-27T17:53:27+02:00 [Dispatcher] Invoking Service End::secured/admin/getAllNotifications
+2016-09-27T17:53:28+02:00 [Dispatcher] Invoking Service Start::secured/lead/getMyLeads
+2016-09-27T17:53:28+02:00 [Dispatcher] Invoking Service End::secured/lead/getMyLeads
+2016-09-27T17:53:28+02:00 [Dispatcher] Invoking Service Start::secured/task/getMyOpenTasks
+2016-09-27T17:53:28+02:00 [Dispatcher] Invoking Service End::secured/task/getMyOpenTasks
+2016-09-27T17:53:28+02:00 [Dispatcher] Invoking Service Start::secured/task/getMyOverdueTasks
+2016-09-27T17:53:28+02:00 [Dispatcher] Invoking Service End::secured/task/getMyOverdueTasks
+2016-09-27T17:53:28+02:00 [Dispatcher] Invoking Service Start::secured/lead/getLeadStatistics
+2016-09-27T17:53:28+02:00 [Dispatcher] Invoking Service End::secured/lead/getLeadStatistics
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service Start::job/getJobNotifications
+2016-09-27T17:53:30+02:00 [Dispatcher] Exception while invoking job/getJobNotifications
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service End::job/getJobNotifications
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service Start::secured/admin/getAllNotifications
+2016-09-27T17:53:30+02:00 [Dispatcher] Exception while invoking secured/admin/getAllNotifications
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service End::secured/admin/getAllNotifications
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service Start::login/authenticate
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service End::login/authenticate
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service Start::secured/lead/getMyLeads
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service End::secured/lead/getMyLeads
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service Start::secured/task/getMyOverdueTasks
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service End::secured/task/getMyOverdueTasks
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service Start::secured/lead/getLeadStatistics
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service End::secured/lead/getLeadStatistics
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service Start::secured/task/getMyOpenTasks
+2016-09-27T17:53:30+02:00 [Dispatcher] Invoking Service End::secured/task/getMyOpenTasks
+2016-09-27T17:59:43+02:00 [Dispatcher] Invoking Service Start::secured/admin/getAllNotifications
+2016-09-27T17:59:43+02:00 [Dispatcher] Exception while invoking secured/admin/getAllNotifications
+2016-09-27T17:59:43+02:00 [Dispatcher] Invoking Service End::secured/admin/getAllNotifications
+2016-09-27T17:59:43+02:00 [Dispatcher] Invoking Service Start::job/getJobNotifications
+2016-09-27T17:59:43+02:00 [Dispatcher] Exception while invoking job/getJobNotifications
+2016-09-27T17:59:43+02:00 [Dispatcher] Invoking Service End::job/getJobNotifications
+2016-09-27T17:59:44+02:00 [Dispatcher] Invoking Service Start::login/authenticate
+2016-09-27T17:59:44+02:00 [Dispatcher] Invoking Service End::login/authenticate
+2016-09-27T17:59:44+02:00 [Dispatcher] Invoking Service Start::secured/task/getMyOpenTasks
+2016-09-27T17:59:44+02:00 [Dispatcher] Invoking Service End::secured/task/getMyOpenTasks
+2016-09-27T17:59:44+02:00 [Dispatcher] Invoking Service Start::secured/lead/getLeadStatistics
+2016-09-27T17:59:44+02:00 [Dispatcher] Invoking Service End::secured/lead/getLeadStatistics
+2016-09-27T17:59:44+02:00 [Dispatcher] Invoking Service Start::secured/task/getMyOverdueTasks
+2016-09-27T17:59:44+02:00 [Dispatcher] Invoking Service End::secured/task/getMyOverdueTasks
+2016-09-27T17:59:44+02:00 [Dispatcher] Invoking Service Start::secured/lead/getMyLeads
+2016-09-27T17:59:44+02:00 [Dispatcher] Invoking Service End::secured/lead/getMyLeads
+2016-09-27T18:00:31+02:00 [Dispatcher] Invoking Service Start::secured/admin/getAllNotifications
+2016-09-27T18:00:31+02:00 [Dispatcher] Exception while invoking secured/admin/getAllNotifications
+2016-09-27T18:00:31+02:00 [Dispatcher] Invoking Service End::secured/admin/getAllNotifications
+2016-09-27T18:00:31+02:00 [Dispatcher] Invoking Service Start::job/getJobNotifications
+2016-09-27T18:00:31+02:00 [Dispatcher] Exception while invoking job/getJobNotifications
+2016-09-27T18:00:31+02:00 [Dispatcher] Invoking Service End::job/getJobNotifications
+2016-09-27T18:00:32+02:00 [Dispatcher] Invoking Service Start::login/authenticate
+2016-09-27T18:00:32+02:00 [Dispatcher] Invoking Service End::login/authenticate
+2016-09-27T18:00:32+02:00 [Dispatcher] Invoking Service Start::secured/task/getMyOpenTasks
+2016-09-27T18:00:32+02:00 [Dispatcher] Invoking Service End::secured/task/getMyOpenTasks
+2016-09-27T18:00:32+02:00 [Dispatcher] Invoking Service Start::secured/task/getMyOverdueTasks
+2016-09-27T18:00:32+02:00 [Dispatcher] Invoking Service End::secured/task/getMyOverdueTasks
+2016-09-27T18:00:32+02:00 [Dispatcher] Invoking Service Start::secured/lead/getMyLeads
+2016-09-27T18:00:32+02:00 [Dispatcher] Invoking Service End::secured/lead/getMyLeads
+2016-09-27T18:00:32+02:00 [Dispatcher] Invoking Service Start::secured/lead/getLeadStatistics
+2016-09-27T18:00:32+02:00 [Dispatcher] Invoking Service End::secured/lead/getLeadStatistics

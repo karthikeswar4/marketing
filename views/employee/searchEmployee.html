@@ -1,0 +1,91 @@
+<div class="search employee">
+<div  ng-controller="SearchEmployeeController" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	<header class="mdl-layout__header">
+		<div class="mdl-layout__header-row">
+			<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored back-button" ui-sref="home">
+				<i class="material-icons">&#xE5C4;</i>
+			</button>
+		  	<span class="mdl-layout-title">Search Employee</span>
+		</div>
+	</header>
+ 
+	<main class="mdl-layout__content mdl-shadow--8dp">
+		<div class="page-content">
+			<div class="search-wrapper">
+				<div class="search-filter">
+					<div><h6 class="no-margin">Search Employee By:</h6></div>
+					<form action="javascript:;" name="searchemployee">
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<auto-complete ng-model="filter.id" display-field="name" value-field="id" search-url="api/employee/getEmployeesByName"></auto-complete>
+							<label class="mdl-textfield__label">Name</label>
+						</div>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<input class="mdl-textfield__input" type="text" ng-model="filter.phone" material-model>
+							<label class="mdl-textfield__label">Phone</label>
+						</div>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<input class="mdl-textfield__input" type="text" ng-model="filter.place" material-model>
+							<label class="mdl-textfield__label">Place</label>
+						</div>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<select class="mdl-textfield__input" ng-model="filter.designation" material-model material-required>
+								<option value="driver">Driver</option>
+								<option value="cleaner">Cleaner</option>
+							</select>
+							<label class="mdl-textfield__label">Designation</label>
+						</div>
+						<div>
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" ng-click="searchEmployees()">
+								Search
+							</button>
+							<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" ng-click="resetSearch()">
+								Reset
+							</button>
+						</div>
+					</form>
+				</div>
+				<div class="search-table">
+					<table cellspacing="0">
+						<thead>
+							<tr>
+								<td class="mdl-layout--large-screen-only">Name</td>
+								<td class="mdl-layout--large-screen-only">Phone</td>
+								<td class="mdl-layout--large-screen-only">Place</td>
+								<td class="mdl-layout--large-screen-only">Designation</td>
+								<td class="mdl-layout--large-screen-only">Address</td>
+								<td class="mdl-layout--large-screen-only"></td>
+								<td class="mdl-layout--small-screen-only">
+									<div>Name</div>
+									<div>Phone</div>
+									<div>Place</div>
+									<div>Designation</div>
+									<div>Address</div>
+								</td>
+							</tr>
+						<thead>
+						<tbody>
+							<tr ng-repeat="loan in employeesList track by $index" class="cursor-pointer">
+								<td class="mdl-layout--large-screen-only" ng-bind="loan.name"></td>
+								<td class="mdl-layout--large-screen-only" ng-bind="loan.phone"></td>
+								<td class="mdl-layout--large-screen-only" ng-bind="loan.place"></td>
+								<td class="mdl-layout--large-screen-only" ng-bind="loan.designation"></td>
+								<td class="mdl-layout--large-screen-only" ng-bind="loan.address"></td>
+								<td class="mdl-layout--large-screen-only"><button ng-click="rowClick(loan)">View</button></td>
+								<td class="mdl-layout--small-screen-only" class="mdl-layout--small-screen-only">
+									<div><span>Name: </span><span ng-bind="loan.name"></span></div>
+									<div><span>Phone: </span><span ng-bind="loan.phone"></span></div>
+									<div><span>Place: </span><span ng-bind="loan.place"></span></div>
+									<div><span>Designation: </span><span ng-bind="loan.designation"></span></div>
+									<div><span>Address: </span><span ng-bind="loan.address"></span></div>
+									<div><button ng-click="rowClick(loan)">View</button></div>
+								</td>
+							</tr>
+							<tr ng-show="!employeesList.length"><td colspan="7">No records found</td></tr>
+						</tbody>					
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+</div>
+</div>

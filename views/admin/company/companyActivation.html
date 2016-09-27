@@ -1,0 +1,60 @@
+<div class="roles row" ng-controller="CompanyActivationController">
+	<div class="col-md-12">
+		<div class="row">
+			<div class="header col-md-12 background-app-blue color-white">
+				<button class="btn btn-primary fab-button" ng-click="goBack()">back</button>
+				<span class="h4 horz-padding"><span ng-bind="'ACTIVATE_COMPANY' | translate"></span></span>
+			</div>
+		</div>
+		<div class="row" fixed-container fixed-attr="{ orientation: 'BOTTOM' }">
+			<div class="company-wrapper">
+				<form name="companyForm" class="screen-only">
+					<div class="company-content col-md-12 no-horz-padding">
+						<div class="col-md-12"><span class="error" ng-bind="errormessage"></span></div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class=""><span ng-bind="'ACTIVATION_KEY' | translate"></span></label>
+								<input class="form-control" ng-model="data.activation_key" maxlength="30" disabled>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class=""><span ng-bind="'ACTIVATION_FROM' | translate"></span></label>
+								<input class="form-control" ng-model="data.activation_from" maxlength="30" date-picker>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class=""><span ng-bind="'ACTIVATION_TO' | translate"></span></label>
+								<input class="form-control" ng-model="data.activation_to" maxlength="30" date-picker>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class=""><span ng-bind="'DATABASE_HOST' | translate"></span></label>
+								<input class="form-control" ng-model="data.host" maxlength="30">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class=""><span ng-bind="'DATABASE_NAME' | translate"></span></label>
+								<input class="form-control" ng-model="data.dbname" maxlength="30">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class=""><span ng-bind="'DATABASE_PASSWORD' | translate"></span></label>
+								<input class="form-control" ng-model="data.auth" maxlength="30">
+							</div>
+						</div>
+						<div class="col-md-12 text-align-right background-color-white" fixed-bar>
+							<button class="btn btn-primary" ng-click="goBack()" type="button"><span ng-bind="'CANCEL' | translate"></span></button>
+							<button class="btn btn-primary" ng-click="saveActivationDetail()"><span ng-bind="'SAVE' | translate"></span></button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	

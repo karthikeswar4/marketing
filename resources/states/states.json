@@ -1,0 +1,579 @@
+{
+	"home": {
+		"url": "/home",
+		"views": {
+			"main@": {
+				"templateUrl": "views/home.html"
+			}
+		},
+		"data": {
+			"displayName": "Home"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/homeController.js", "libs/jquery-ui/jquery-ui.min.css", "libs/jquery-ui/jquery-ui.min.js", "js/directive/utilDirectives.js", "js/directive/autocomplete/autoComplete.js", "js/directive/autocomplete/auto-complete.css"]
+			}
+		}
+	},
+	"registration": {
+		"url": "/registration",
+		"views": {
+			"main@": {
+				"templateUrl": "views/registration/registration.html"
+			}
+		},
+		"data": {
+			"displayName": "Registration",
+			"requireAuthentication": false
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/registration/registrationController.js"]
+			}
+		}
+	},
+	"login": {
+		"url": "/login",
+		"views": {
+			"main@": {
+				"templateUrl": "views/login.html"
+			}
+		},
+		"data": {
+			"displayName": "Home"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/loginController.js"]
+			}
+		}
+	},
+	"home.admin": {
+		"url": "/administration",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/admin/admin.html"
+			}
+		},
+		"data": {
+			"displayName": "Admin"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/admin/adminController.js"]
+			}
+		}
+	},
+	"home.admin.company": {
+		"url": "/company",
+		"views": {
+			"admin@home.admin": {
+				"templateUrl": "views/admin/company/company.html"
+			}
+		},
+		"data": {
+			"displayName": "Company"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/admin/company/companyController.js"]
+			}
+		}
+	},
+	"home.admin.company.detail": {
+		"url": "/:record_id",
+		"views": {
+			"admin@home.admin": {
+				"templateUrl": "views/admin/company/companyDetail.html"
+			}
+		},
+		"data": {
+			"displayName": "Company Detail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/admin/company/companyDetailController.js"]
+			}
+		}
+	},
+	"home.admin.company.detail.activate": {
+		"url": "/activate",
+		"views": {
+			"admin@home.admin": {
+				"templateUrl": "views/admin/company/companyActivation.html"
+			}
+		},
+		"data": {
+			"displayName": "Company Activation"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/admin/company/companyActivationController.js"]
+			}
+		}
+	},
+	"home.admin.role": {
+		"url": "/role",
+		"views": {
+			"admin@home.admin": {
+				"templateUrl": "views/admin/role/role.html"
+			}
+		},
+		"data": {
+			"displayName": "Role"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/admin/role/roleController.js"]
+			}
+		}
+	},
+	"home.admin.role.associate": {
+		"url": "/associate",
+		"views": {
+			"admin@home.admin": {
+				"templateUrl": "views/admin/role/roleAssociate.html"
+			}
+		},
+		"data": {
+			"displayName": "Role Associate Detail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/admin/role/roleAssociateController.js"]
+			}
+		}
+	},
+	"home.admin.role.detail": {
+		"url": "/:record_id",
+		"views": {
+			"admin@home.admin": {
+				"templateUrl": "views/admin/role/roleDetail.html"
+			}
+		},
+		"data": {
+			"displayName": "Role Detail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/admin/role/roleDetailController.js"]
+			}
+		}
+	},
+	"home.dashboard": {
+		"url": "/dashboard",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/dashboard/dashboard.html"
+			}
+		},
+		"data": {
+			"displayName": "Dashboard"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["libs/highcharts/js/highcharts.js", "js/controllers/dashboard/dashboardController.js"]
+			}
+		}
+	},
+	"home.leads": {
+		"url": "/leads",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/leads/baseLeads.html"
+			}
+		},
+		"data": {
+			"displayName": "Leads"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/leads/leadBaseController.js"]
+			}
+		}
+	},
+	"home.leads.search": {
+		"url": "/search",
+		"views": {
+			"leads@home.leads": {
+				"templateUrl": "views/leads/leads.html"
+			}
+		},
+		"data": {
+			"displayName": "Leads"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/leads/leadsController.js"]
+			}
+		}
+	},
+	"home.leads.import": {
+		"url": "/import",
+		"views": {
+			"leads@home.leads": {
+				"templateUrl": "views/leads/leadsImport.html"
+			}
+		},
+		"data": {
+			"displayName": "LeadsDetail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/leads/leadsImportController.js"]
+			}
+		}
+	},
+	"home.leads.detail": {
+		"url": "/:record_id",
+		"views": {
+			"leads@home.leads": {
+				"templateUrl": "views/leads/leadsDetail.html"
+			}
+		},
+		"data": {
+			"displayName": "LeadsDetail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/leads/leadsDetailController.js"]
+			}
+		}
+	},
+	"home.opportunities": {
+		"url": "/opportunities",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/opportunities/baseOpportunities.html"
+			}
+		},
+		"data": {
+			"displayName": "Opportunities"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/opportunities/baseOpportunitiesController.js"]
+			}
+		}
+	},
+	"home.opportunities.search": {
+		"url": "/search",
+		"views": {
+			"opportunities@home.opportunities": {
+				"templateUrl": "views/opportunities/opportunities.html"
+			}
+		},
+		"data": {
+			"displayName": "LeadsDetail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/opportunities/opportunitiesController.js"]
+			}
+		}
+	},
+	"home.opportunities.detail": {
+		"url": "/:record_id",
+		"views": {
+			"opportunities@home.opportunities": {
+				"templateUrl": "views/opportunities/opportunitiesDetail.html"
+			}
+		},
+		"data": {
+			"displayName": "OpportunitiesDetail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/opportunities/opportunitiesDetailController.js"]
+			}
+		}
+	},
+	"home.contact": {
+		"url": "/contacts",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/contacts/baseContacts.html"
+			}
+		},
+		"data": {
+			"displayName": "Contact"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/contacts/baseContactController.js"]
+			}
+		}
+	},
+	"home.contact.search": {
+		"url": "/search",
+		"views": {
+			"contact@home.contact": {
+				"templateUrl": "views/contacts/contacts.html"
+			}
+		},
+		"data": {
+			"displayName": "ContactSearch"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/contacts/contactController.js"]
+			}
+		}
+	},
+	"home.contact.detail": {
+		"url": "/:record_id",
+		"views": {
+			"contact@home.contact": {
+				"templateUrl": "views/contacts/contactDetail.html"
+			}
+		},
+		"data": {
+			"displayName": "ContactDetail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/contacts/contactDetailController.js"]
+			}
+		}
+	},
+	"home.campaign": {
+		"url": "/campaign",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/campaign/baseCampaign.html"
+			}
+		},
+		"data": {
+			"displayName": "Campaign"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/campaign/baseCampaignController.js"]
+			}
+		}
+	},
+	"home.campaign.search": {
+		"url": "/search",
+		"views": {
+			"campaign@home.campaign": {
+				"templateUrl": "views/campaign/campaign.html"
+			}
+		},
+		"data": {
+			"displayName": "CampaignSearch"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/campaign/campaignController.js"]
+			}
+		}
+	},
+	"home.campaign.detail": {
+		"url": "/:record_id",
+		"views": {
+			"campaign@home.campaign": {
+				"templateUrl": "views/campaign/campaignDetail.html"
+			}
+		},
+		"data": {
+			"displayName": "CampaignDetail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/campaign/campaignDetailController.js"]
+			}
+		}
+	},
+	"home.product": {
+		"url": "/product",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/product/baseProduct.html"
+			}
+		},
+		"data": {
+			"displayName": "Product"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/product/baseProductController.js"]
+			}
+		}
+	},
+	"home.product.search": {
+		"url": "/search",
+		"views": {
+			"product@home.product": {
+				"templateUrl": "views/product/product.html"
+			}
+		},
+		"data": {
+			"displayName": "ProductSearch"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/product/productController.js"]
+			}
+		}
+	},
+	"home.product.detail": {
+		"url": "/:record_id",
+		"views": {
+			"product@home.product": {
+				"templateUrl": "views/product/productDetail.html"
+			}
+		},
+		"data": {
+			"displayName": "ProductDetail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/product/productDetailController.js"]
+			}
+		}
+	},
+	"home.user": {
+		"url": "/users",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/user/users.html"
+			}
+		},
+		"data": {
+			"displayName": "Users"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/user/userController.js"]
+			}
+		}
+	},
+	"home.user.search": {
+		"url": "/search",
+		"views": {
+			"user@home.user": {
+				"templateUrl": "views/user/userSearch.html"
+			}
+		},
+		"data": {
+			"displayName": "Users"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/user/userSearchController.js"]
+			}
+		}
+	},
+	"home.user.search.detail": {
+		"url": "/:record_id",
+		"views": {
+			"user@home.user": {
+				"templateUrl": "views/user/userDetail.html"
+			}
+		},
+		"data": {
+			"displayName": "UserDetail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/user/userDetailController.js"]
+			}
+		}
+	},
+	"home.user.locate": {
+		"url": "/locateuser",
+		"views": {
+			"user@home.user": {
+				"templateUrl": "views/tracking/userLocation.html"
+			}
+		},
+		"data": {
+			"displayName": "UserLocation"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/tracking/userLocationController.js"]
+			}
+		}
+	},
+	"home.user.traveldistance": {
+		"url": "/distance",
+		"views": {
+			"user@home.user": {
+				"templateUrl": "views/tracking/userTracking.html"
+			}
+		},
+		"data": {
+			"displayName": "UserTracking"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/tracking/userTrackingController.js"]
+			}
+		}
+	},
+	"home.user.calllog": {
+		"url": "/calllog",
+		"views": {
+			"user@home.user": {
+				"templateUrl": "views/tracking/userCallLogs.html"
+			}
+		},
+		"data": {
+			"displayName": "UserTracking"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/tracking/userCallLogController.js"]
+			}
+		}
+	},
+	"home.task": {
+		"url": "/tasks",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/tasks/tasks.html"
+			}
+		},
+		"data": {
+			"displayName": "Tasks"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/tasks/tasksController.js"]
+			}
+		}
+	},
+	"home.task.detail": {
+		"url": "/:record_id",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/tasks/taskDetail.html"
+			}
+		},
+		"data": {
+			"displayName": "TaskDetail"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["js/controllers/tasks/taskDetailController.js"]
+			}
+		}
+	},
+	"home.calendar": {
+		"url": "/calendar",
+		"views": {
+			"content@home": {
+				"templateUrl": "views/calendar/calendar.html"
+			}
+		},
+		"data": {
+			"displayName": "Calendar"
+		},
+		"resolve": {
+			"lazyload": {
+				"dependencies": ["libs/calendar/fullcalendar.min.js", "libs/calendar/fullcalendar.min.css", "libs/calendar/fullcalendar.print.css", "js/directive/calendarDirective.js", "js/controllers/calendar/calendarController.js"]
+			}
+		}
+	}
+}

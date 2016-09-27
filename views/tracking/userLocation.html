@@ -1,0 +1,23 @@
+<div oc-lazy-load="{name: 'app', files: ['https://maps.googleapis.com/maps/api/js?libraries=geometry,places,drawing&key=AIzaSyAuXZuPGEpBt9Um7_wN8imTW56drdQ_Bo0']}">
+	<div class="users" ng-controller="UserLocationController">
+		<div class="row">
+			<div class="col-md-12">
+				<main class="">
+					<div class="page-content">
+						<form class="form-inline">
+							<div class="form-group">
+								<label class=""><span ng-bind="'USER' | translate"></span></label>
+								<auto-complete ng-model="filter.user_id" ng-change="getUserLastKnownLocation()"
+									display-field="(firstname || '') + ' ' + (lastname || '')" value-field="id" 
+									search-url="api/user/getAllUsersAutoSuggest" selected-item="data.selectedUser"></auto-complete>
+							</div>
+							<button class="btn btn-primary" type="submit" ng-click="getUserLastKnownLocation()"><span ng-bind="'SEARCH' | translate"></span></button>
+						</form>
+					</div>
+				 	<div map on-map-loaded="onMapLoaded(map)" class="map-wrapper vertical-margin map-background"></div>
+				</main>
+			</div>
+		</div>
+	</div>
+</div>
+	

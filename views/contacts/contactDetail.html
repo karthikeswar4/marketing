@@ -1,0 +1,110 @@
+<div class="contacts" ng-controller="ContactDetailController">
+	<div class="row">
+		<div class="col-md-12 job-header">
+			<div class="job-header row padding background-app-blue color-white">
+				<span class="h4" translate="EDIT_CONTACT"></span>
+			</div>
+		</div>
+		<div fixed-container fixed-attr="{ orientation: 'BOTTOM' }">
+			<div class="row">
+				<form name="jobForm" class="screen-only">
+					<div class="col-md-12 action-bar padding horz-margin">
+						<button type="button" class="btn btn-primary" ng-click="goBack()" translate="BACK"></button>
+					</div>
+					<div class="col-md-12 job-content padding">
+						<div class="col-md-12"><span class="error" ng-bind="errormessage"></span></div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="CONTACT_ID"></label>
+								<input class="form-control" type="text" id="lead_id" ng-model="data.id" disabled field-security="leads" field-security-data-id="data.id">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="company_name" translate="COMPANY_NAME"></label>
+								<input class="form-control" type="text" id="company_name" ng-model="data.lead_company_name" field-security="leads" field-security-data-id="data.id" material-required material-upgrade ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="industry" translate="INDUSTRY"></label>
+								<input class="form-control" type="text" id="industry" ng-model="data.industry" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="contactperson" translate="CONTACT_PERSON"></label>
+								<input class="form-control" type="text" id="contactperson" ng-model="data.contact_person" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="designation" translate="DESIGNATION"></label>
+								<input class="form-control" type="text" id="designation" ng-model="data.designation" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="phone" translate="PHONE"></label>
+								<input class="form-control" type="text" id="phone" ng-model="data.phone1" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="address1" translate="ADDRESS_LINE1"></label>
+								<input class="form-control no-resize" type="text" id="address1" ng-model="data.address_line1" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="address2" translate="ADDRESS_LINE2"></label>
+								<input class="form-control no-resize" type="text" id="address2" ng-model="data.address_line2" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="address2" translate="ADDRESS_LINE3"></label>
+								<input class="form-control no-resize" type="text" id="address2" ng-model="data.address_line3" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="city" translate="CITY"></label>
+								<input class="form-control no-resize" type="text" id="city" ng-model="data.city" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="state" translate="STATE"></label>
+								<input class="form-control no-resize" type="text" id="state" ng-model="data.state" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="country" translate="COUNTRY"></label>
+								<input class="form-control no-resize" type="text" id="country" ng-model="data.country" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+	                    <div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="mailid" translate="MAILID"></label>
+								<input class="form-control no-resize" type="text" id="mailid" ng-model="data.mailid" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" for="website" translate="WEBSITE"></label>
+								<input class="form-control no-resize" type="text" id="website" ng-model="data.website" field-security="leads" field-security-data-id="data.id" ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+							</div>
+						</div>
+						<div class="col-md-12 text-align-right background-color-white lead-button-bar" fixed-bar>
+							<button class="btn btn-primary" ng-click="goBack()" type="button" translate="CANCEL"></button>
+							<button class="btn btn-primary" ng-click="updateContact()" translate="SAVE"></button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	

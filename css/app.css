@@ -1,0 +1,364 @@
+#appContainer {
+    box-shadow: 0px 0px 5px 3px #CCC;
+}
+#appContainer > div > footer {
+	position: fixed;
+	bottom: 0;	
+    background: #FFF;
+    padding: 8px;
+    height: 30px;
+    z-index: 1;
+    box-shadow: 0px 2px 5px 3px #CCC;
+}
+
+#appContainer > div > footer img {
+	max-width: 50px;
+	margin-top: -6px;
+}
+
+.main-layout {
+	margin-bottom: 30px;
+}
+
+.login-wrapper .login {
+    padding: 15px;
+}
+
+/*=============== POPOVER ================*/
+.popover.top {
+	position: fixed !important;
+    top: 15px !important;
+	text-align: center !important;
+	cursor: pointer;
+	word-wrap: break-word;
+	min-width: 200px !important;
+    max-width: 450px !important;
+}
+.popover.success {
+	background-color: #008000;
+	color: #FFF;
+}
+.popover.warning {
+	background-color: orange;
+	color: #FFF;
+}
+.popover.error {
+	background-color: #FF0000;
+	color: #FFF;
+}
+.popover.info {
+	background-color: #0080FF;
+	color: #FFF;
+}
+/*=============== POPOVER ================*/
+
+/*====================TOP MENU=========================*/
+.main-content .menu {
+	position: fixed;
+	top: 0;
+	/*height: 46px;*/
+	vertical-align: middle;
+	z-index: 2;
+	border-bottom: 1px solid;
+}
+.main-content .menu ul {
+	margin-bottom: 0px;
+}
+.main-content .menu li {
+	line-height: 32px;
+    font-size: 18px;
+    color: white;
+    margin-right: 35px;
+    margin-left: -18px;
+    padding-left: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.main-content .menu li span:after {
+	content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-width: 17px;
+    border-style: solid;
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    border-right: 0px transparent;
+    margin: 0 7px;
+}
+
+.main-content .menu li:after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    bottom: 0px;
+    border-width: 16px;
+    border-style: solid;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-right: 0px transparent;
+    margin: 0px 5px;
+}
+.main-content .menu li.active {
+	z-index: -1;
+}
+.main-content .menu li.active:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: -24px;
+    bottom: 0px;
+    border-width: 16px;
+    border-style: solid;
+    border-left: 16px solid transparent;
+    border-right: 0px transparent;
+    margin: 0px 10px;
+}
+.main-content .menu li:last-child:after,
+.main-content .menu li:last-child span:after,
+.main-content .menu li:first-child:before {
+	display: none;
+}
+.main-content .menu li.active:last-child:after {
+	display: inherit;
+}
+
+/*====================TOP MENU=========================*/
+
+/*====================LEFT MENU=========================*/
+
+.main-content .left-side-content .left-menu-slider-icon img {
+	width: 50px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.main-content .left-bar.collapse-menu .left-side-content .left-menu-slider-icon .slide-left,
+.main-content .left-side-content .left-menu-slider-icon .slide-right {
+	display: none;
+}
+
+.main-content .left-bar.collapse-menu .left-side-content .left-menu-slider-icon .slide-right,
+.main-content .left-side-content .left-menu-slider-icon .slide-left {
+	display: initial;
+}
+
+.main-content .left-bar {
+    transition: all 0.1s linear;
+    max-width: 250px;
+    width: 200px;
+    white-space: nowrap;
+    overflow: auto;
+}
+.main-content .left-bar.collapse-menu {
+    width: 40px;
+    max-width: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.main-content .left-bar .menu-item {
+    min-height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    /*padding-left: 15px;*/
+	cursor: pointer;
+}
+.main-content .left-bar .menu-item .menu-item-name {
+	border-bottom: 1px solid;
+}
+.main-content .left-bar .menu-item .left-menu-icon {
+	right: 15px;
+    position: absolute;
+    top: 15px;
+}
+
+/*
+.main-content .left-bar .menu-item.active {
+	position: relative;
+}
+.main-content .left-bar .menu-item.active:after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    border-width: 25px;
+    border-style: solid;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-right: 0px transparent;
+    margin: 0px 5px;
+}*/
+.main-content .left-bar .left-side-content {
+	margin: 0px;
+}
+.left-side-content .panel-group {
+	margin: 0;
+}
+.left-side-content .panel-group .active .panel-heading {
+    background: transparent;
+    color: #FFF;
+}
+.left-side-content .panel-group .panel-body {
+	padding-left: 0; 
+	padding-right: 0; 
+}
+.left-side-content .panel-group .panel-body .panel-group .panel {
+	padding-left: 15px; 
+	padding-right: 15px;
+	border-radius: 0;
+	background-color: #f5f5f5;
+	border-top: 0;
+}
+.left-side-content .panel-group .panel-body .panel-group .panel:last-child {
+	border-bottom: 0;
+	box-shadow: none;
+}
+.left-side-content .panel-group .panel-collapse {
+    background-color: #f5f5f5;
+}
+
+.left-side-content .panel-group .panel {
+	margin: 0;
+}
+.left-side-content .panel-group a, .left-side-content .panel-group a:hover {
+	text-decoration: none;
+}
+
+.main-content .content {
+	margin-top: 32px;
+}
+/*====================LEFT MENU=========================*/
+
+/*====================== LEADS ===============*/
+.lead-button-bar {
+	margin-bottom: 30px;
+	padding: 10px;
+}
+.fixed-bar-active {
+	z-index: 1;
+}
+/*====================== LEADS ===============*/
+
+/*====================== TASKS ===============*/
+.task-wrapper .task-item {
+	min-height: 50px;
+    padding: 15px;
+    border-top: 1px solid;
+}
+.task-wrapper .task-item:first-child {
+	border-top: none;
+}
+/*====================== TASKS ===============*/
+/*======================MAP LOCATION ===============*/
+.map-wrapper {
+	min-height: 600px;
+}
+.map-wrapper .map-location-header {
+	height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: bold;
+}
+#locatiomap, .map-background, #user_tracking_map {
+	min-height: 500px;
+	background: url(../images/loading-background.gif) no-repeat center;
+}
+/*======================MAP LOCATION ===============*/
+
+/*====================== TABLE STYLES ===============*/
+table thead {
+    font-size: 16px;
+    font-weight: bold;
+}
+tr {
+	height: 30px;
+}
+tr td {
+	padding: 5px 9px;
+	border: 1px solid;
+}
+/*====================== TABLE STYLES ===============*/
+
+/*====================== DASHBOARD ===============*/
+.dashboard {
+	transition: all 0.5s ease-in-out;
+}
+.dashboard .dashboard-section-elem {
+    width: calc(50% - 15px);
+}
+.dashboard .dashboard-section {
+	border: 1px solid;
+	position: relative;
+    margin: 15px;
+    border-radius: 5px;
+}
+.dashboard .dashboard-section.dashboard-activities {
+	min-height: 890px !important;
+}
+.dashboard .dashboard-section:nth-child(odd) {
+    margin-left: 0px;
+}
+.dashboard .dashboard-section:nth-child(even) {
+    margin-right: 0px;
+}
+.dashboard .dashboard-section .dash-elem {
+	position:absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transform: scale(0.1, 0.1) rotate(180deg);
+	transition: all 1s ease-in-out;
+}
+
+.dashboard .dashboard-section .dash-elem .heading{
+	font-size: 14px;
+	font-weight: bold;
+}
+/*
+.dashboard .dashboard-section:first-child .dash-elem {
+	background: url(../images/chart.png);
+	background-size: cover; 
+}*/
+
+/*
+.dashboard .dashboard-section:first-child .dash-elem{ background-color: red; }
+.dashboard .dashboard-section:nth-child(2) .dash-elem { background-color: green; }
+.dashboard .dashboard-section:nth-child(3) .dash-elem { background-color: blue; }
+.dashboard .dashboard-section:nth-child(4) .dash-elem { background-color: orange; }
+*/
+
+.dashboard .dashboard-section .dash-elem.animate {
+	transform: scale(1, 1);
+}
+/*====================== DASHBOARD ===============*/
+
+/*====================== CAMPAIGN ===============*/
+.campaign-lead {
+	min-height: 70px;
+	border-radius: 5px;
+	padding: 15px;
+	cursor: pointer;
+}
+/*====================== CAMPAIGN ===============*/
+
+/*====================== ADMIN ===============*/
+.admin-content {
+	margin-bottom: 30px;
+}
+/*====================== ADMIN ===============*/
+
+/* Tablet devices */
+@media (max-width: 839px) and (min-width: 480px) {
+	.
+}
+
+/* Mobile devices */
+@media (max-width: 479px) {
+	
+}
+@media print {
+	
+}

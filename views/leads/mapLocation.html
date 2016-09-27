@@ -1,0 +1,20 @@
+<div class="map-wrapper">
+	<div oc-lazy-load="{name: 'app', files: ['js/controllers/leads/mapLocationController.js', 
+									'https://maps.googleapis.com/maps/api/js?key=AIzaSyAuXZuPGEpBt9Um7_wN8imTW56drdQ_Bo0&libraries=drawing']}">
+		<div  class="row" ng-controller="MapLocationController">
+			<div class="col-md-12">
+				<header class="col-md-12 map-location-header background-app-blue">
+					<span ng-bind="locationHeader || 'Select Location'"></span>
+				</header>
+				<main class="col-md-12 padding">
+					<div class="button-bar vertical-padding no-top-padding">
+						<button type="button" class="btn btn-primary" ng-click="selectLocation(marker)"><span ng-bind="'SELECT'"></span></button>
+						<button type="button" class="btn btn-primary" ng-click="closeModalDialog()"><span ng-bind="'CANCEL'"></span></button>
+					</div>
+					<div id="locatiomap">
+					</div>
+				</main>
+			</div>
+		</div>
+	</div>
+</div>

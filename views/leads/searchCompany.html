@@ -1,0 +1,60 @@
+<div oc-lazy-load="{name: 'app', files: ['js/controllers/leads/searchCompanyController.js']}">
+	<div ng-controller="SearchCompanyController">
+		<div class="row">
+			<div class="col-md-12">
+				<header>
+					<div class="col-md-12 vertical-padding background-app-blue">
+						<h4 translate="SEARCH_COMPANY"></h4>
+					</div>
+				</header>
+				<main>
+					<div class="col-md-12 vertical-padding">
+						<button class="btn btn-primary" translate="SEARCH" ng-click="searchAllLeadCompanies()"></button>
+						<button class="btn btn-primary" translate="CANCEL" ng-click="closeModalDialog()"></button>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label translate="COMPANY_NAME"></label>
+							<input type="text" class="form-control" ng-model="filter.name">
+						</div>
+					</div>
+					<div class="col-md-12 vertical-padding">
+						<div class="search-table row">
+							<div class="col-md-12">
+								<table cellspacing="0" class="full-width">
+									<thead>
+										<tr>
+											<td class="hidden-xs"><span ng-bind="'COMPANY_NAME' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'EMAIL' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'ADDRESS' | translate"></span></td>
+											<td class="visible-xs-block">
+												<span ng-bind="'COMPANY_NAME' | translate"></span><br/>
+												<span ng-bind="'EMAIL' | translate"></span>
+												<span ng-bind="'ADDRESS' | translate"></span>
+											</td>
+										</tr>
+									<thead>
+									<tbody ng-class="{ 'data-loading' : config.loading }">
+										<tr ng-repeat="company in companiesList track by $index" class="cursor-pointer" ng-click="rowClick(company)">
+											<td class="hidden-xs" ng-bind="company.lead_company_name"></td>
+											<td class="hidden-xs" ng-bind="company.mailid"></td>
+											<td class="hidden-xs" ng-bind="company.address_line1"></td>
+											<td class="visible-xs-block">
+												<strong><span ng-bind="'COMPANY_NAME' | translate"></span>:</strong><span ng-bind="company.lead_company_name"></span><br/>
+												<strong><span ng-bind="'EMAIL' | translate"></span>:</strong><span ng-bind="company.email"></span><br/>
+												<strong><span ng-bind="'ADDRESS' | translate"></span>:</strong>
+											</td>
+										</tr>
+										<tr ng-show="!config.loading && !companiesList.length && !filter.name"><td colspan="4"><span ng-bind="'NO_LEAD_COMPANY_FILTER_APPLIED' | translate"></span></td></tr>
+										<tr ng-show="!config.loading && !companiesList.length && filter.name"><td colspan="4"><span ng-bind="'NO_RECORDS_FOUND' | translate"></span></td></tr>
+										<tr ng-show="config.loading"><td colspan="4"><span ng-bind="'FETCHING_RECORDS' | translate"></span></td></tr>
+									</tbody>					
+								</table>
+							</div>
+						</div>
+					</div>
+				</main>
+			</div>
+		</div>
+	</div>
+</div>

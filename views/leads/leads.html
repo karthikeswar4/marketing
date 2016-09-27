@@ -1,0 +1,162 @@
+<div class="leads" ng-controller="LeadsController">
+	<div class="row">
+		<div class="col-md-12">
+			<main class="">
+				<div class="page-content">
+					<div class="search-wrapper">
+						<form class="search-filter" action="javascript:;" ng-submit="searchLeads()">
+							<div class="search-header row horz-padding background-app-blue">
+								<span class="h3 color-white vertical-margin display-inline-block">Search Leads</span>
+								<div class="pull-right form-inline">
+									<div class="form-group">
+										<label class="" for="lead_id">Lead Id</label>
+										<input class="form-control" type="text" id="lead_id" ng-model="filter.lead_id">
+									</div>
+									<button class="btn btn-primary" type="submit"> Search </button>
+									<button class="btn btn-primary" type="reset" ng-click="resetSearch()"> Reset </button>
+									<button class="btn btn-primary" type="button" toggle-slide="#leadForm"> Slide UP / Down </button>
+								</div>
+							</div>
+							<div id="leadForm" name="searchLeads" class="row background-app-tint-orange vertical-padding" style="display: none">
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="lead_id">Lead Id</label>
+									<input class="form-control" type="text" id="lead_id" ng-model="filter.lead_id">
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">Employee Name</label>
+									<auto-complete ng-model="filter.user_id" display-field="name" value-field="id" search-url="api/user/getUsersByName"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="company_name">Company Name</label>
+									<input class="form-control" type="text" id="company_name" ng-model="filter.company_name">
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="phone">Phone</label>
+									<input class="form-control" type="text" id="phone" ng-model="filter.phone">
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">Status</label>
+									<select class="form-control" ng-options="key as value for (key, value) in statusList" ng-model="filter.job_status" material-model></select>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">Area</label>
+									<auto-complete ng-model="filter.area" display-field="area" value-field="area" search-url="api/lead/searchValue?field=area"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">City</label>
+									<auto-complete ng-model="filter.city" display-field="city" value-field="city" search-url="api/lead/searchValue?field=city"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">State</label>
+									<auto-complete ng-model="filter.state" display-field="state" value-field="state" search-url="api/lead/searchValue?field=state"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">Country</label>
+									<auto-complete ng-model="filter.country" display-field="country" value-field="country" search-url="api/lead/searchValue?field=country"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">Industry</label>
+									<auto-complete ng-model="filter.industry" display-field="industry" value-field="industry" search-url="api/lead/searchValue?field=industry"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">Contact Person</label>
+									<auto-complete ng-model="filter.contact_person" display-field="contactperson" value-field="contactperson" search-url="api/lead/searchValue?field=contactperson"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="followup_date">Follow Date</label>
+									<input class="form-control" type="text" id="followup_date" ng-model="filter.followup_date" material-date="Y/m/d" material-date-position="top" material-model>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="fromdate">Followup From Date</label>
+									<input class="form-control" type="text" id="fromdate" ng-model="filter.followup_from_date" material-date="Y/m/d" material-date-position="top" material-model>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="todate">Followup To Date</label>
+									<input class="form-control" type="text" id="todate" ng-model="filter.followup_to_date" material-date="Y/m/d" material-date-position="top" material-model>
+								</div>
+								</div>
+							</div>
+						</form>
+						<div class="search-table row">
+							<div class="col-md-12 padding background-app-blue h3 color-white">Search Result</div>
+							<div class="">
+								<table cellspacing="0" class="full-width">
+									<thead>
+										<tr>
+											<td class="hidden-xs"><span ng-bind="'LEAD_ID' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'COMPANY_NAME' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'CONTACT_PERSON' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'PHONE' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'STATUS' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'FOLLOWUP_DATE' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'ASSIGNED_TO' | translate"></span></td>
+											<td class="visible-xs-block">
+												<span><span ng-bind="'LEAD_ID' | translate"></span></span><br/>
+												<span><span ng-bind="'COMPANY_NAME' | translate"></span></span><br/>
+												<span><span ng-bind="'CONTACT_PERSON' | translate"></span></span><br/>
+												<span><span ng-bind="'PHONE' | translate"></span></span><br/>
+												<span><span ng-bind="'STATUS' | translate"></span></span><br/>
+												<span><span ng-bind="'FOLLOWUP_DATE' | translate"></span></span><br/>
+												<span><span ng-bind="'ASSIGNED_TO' | translate"></span></span>
+											</td>
+										</tr>
+									<thead>
+									<tbody>
+										<tr ng-repeat="job in leadsList track by $index" class="cursor-pointer" ng-click="openLead(job)" ng-class="{'won' : job.status == 6, 'lost': job.status == 7}">
+											<td class="hidden-xs"><span ng-bind="job.id"></span><span ng-show="job.inprogressfollowupCount == 0 && (job.status == 4 || job.status == 5)"><i class="material-icons">&#xE566;</i></span></td>
+											<td class="hidden-xs" ng-bind="job.companyname">Company Name</td>
+											<td class="hidden-xs" ng-bind="job.contactperson">Contact Person</td>
+											<td class="hidden-xs" ng-bind="job.phone">Phone</td>
+											<td class="hidden-xs" ng-bind="statusList[job.status]">Status</td>
+											<td class="hidden-xs" ng-bind="getDate(job.followupDate) | date:'dd/MM/yyyy'">dateCreated</td>
+											<td class="hidden-xs" ng-bind="job.assigned_to_name"></td>
+											<td class="visible-xs-block">
+												<strong><span ng-bind="'LEAD_ID' | translate"></span><span>: </span></strong><span ng-bind="job.id"></span><span ng-show="job.inprogressfollowupCount == 0 && (job.status == 4 || job.status == 5)"><i class="material-icons">&#xE566;</i></span><br/>
+												<strong><span ng-bind="'COMPANY_NAME' | translate"></span><span>: </span></strong><span ng-bind="job.companyname"></span><br/>
+												<strong><span ng-bind="'CONTACT_PERSON' | translate"></span><span>: </span></strong><span ng-bind="job.contactperson"></span><br/>
+												<strong><span ng-bind="'PHONE' | translate"></span><span>: </span></strong><span ng-bind="job.phone"></span><br/>
+												<strong><span ng-bind="'STATUS' | translate"></span><span>: </span></strong><span ng-bind="statusList[job.status]"></span><br/>
+												<strong><span ng-bind="'FOLLOWUP_DATE' | translate"></span><span>: </span></strong><span ng-bind="getDate(job.followupDate) | date:'dd/MM/yyyy'"></span><br/>
+												<strong><span ng-bind="'ASSIGNED_TO' | translate"></span><span>: </span></strong><span  ng-bind="job.assigned_to_name"></span>
+											</td>
+										</tr>
+										<tr ng-show="!config.loading && !leadsList.length"><td colspan="8"><span ng-bind="'NO_RECORDS_FOUND' | translate"></span></td></tr>
+										<tr ng-show="config.loading"><td colspan="8"><span ng-bind="'FETCHING_RECORDS' | translate"></span></td></tr>
+									</tbody>					
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+</div>
+	

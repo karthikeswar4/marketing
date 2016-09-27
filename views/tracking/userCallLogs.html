@@ -1,0 +1,66 @@
+<div class="users" ng-controller="UserCallLogController">
+	<div class="row">
+		<div class="col-md-12">
+			<main class="">
+				<div class="page-content">
+					<div class="search-wrapper">
+						<div class="search-filter">
+							<div class="search-header row horz-padding background-app-blue">
+								<span class="h3 color-white vertical-margin display-inline-block"><span ng-bind="'SEARCH_USER_CALLLOG' | translate"></span></span>
+								<form class="pull-right form-inline">
+									<div class="form-group">
+										<label class=""><span ng-bind="'USER' | translate"></span></label>
+										<auto-complete ng-model="filter.user_id" ng-change="searchUserCallLog()"
+										display-field="(firstname || '') + ' ' + (lastname || '')" value-field="id" 
+										search-url="api/user/getAllUsersAutoSuggest" selected-item="roleObj"></auto-complete>
+									</div>
+									<button class="btn btn-primary" type="submit" ng-click="searchUserCallLog()"><span ng-bind="'SEARCH' | translate"></span></button>
+									<button class="btn btn-primary" type="reset" ng-click="resetSearch()"><span ng-bind="'RESET' | translate"></span></button>
+								</form>
+							</div>
+						</div>
+						<div class="search-table row">
+							<div class="col-md-12 padding background-app-blue h3 color-white"><span ng-bind="'SEARCH_RESULT' | translate"></span></div>
+							<div class="">
+								<table cellspacing="0" class="full-width">
+									<thead>
+										<tr>
+											<td class="hidden-xs"><span ng-bind="'NAME' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'STATE' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'PHONE' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'DURATION_IN_SECONDS' | translate"></span></td>
+											<td class="visible-xs-block">
+												<span ng-bind="'NAME' | translate"></span><br/>
+												<span ng-bind="'STATE' | translate"></span><br/>
+												<span ng-bind="'PHONE' | translate"></span><br/>
+												<span ng-bind="'DURATION_IN_SECONDS' | translate"></span>
+											</td>
+										</tr>
+									<thead>
+									<tbody ng-class="{ 'data-loading' : config.loading }">
+										<tr ng-repeat="user in callLogsList track by $index" class="cursor-pointer" ng-click="rowClick(user)">
+											<td class="hidden-xs" ng-bind="(user.firstname || '') + ' ' + (user.lastname || '')"></td>
+											<td class="hidden-xs" ng-bind="user.state"></td>
+											<td class="hidden-xs" ng-bind="user.number"></td>
+											<td class="hidden-xs" ng-bind="user.duration"></td>
+											<td class="visible-xs-block">
+												<strong><span ng-bind="'NAME' | translate"></span>:</strong><span ng-bind="(user.firstname || '') + ' ' + (user.lastname || '')"></span><br/>
+												<strong><span ng-bind="'STATE' | translate"></span>:</strong><span ng-bind="user.state"></span><br/>
+												<strong><span ng-bind="'PHONE' | translate"></span>:</strong><span ng-bind="user.number"></span><br/>
+												<strong><span ng-bind="'DURATION_IN_SECONDS' | translate"></span>:</strong><span ng-bind="user.duration"></span><br/>
+											</td>
+										</tr>
+										<tr ng-show="filter.user_id && !config.loading && !callLogsList.length"><td colspan="5"><span ng-bind="'NO_RECORDS_FOUND' | translate"></span></td></tr>
+										<tr ng-show="config.loading"><td colspan="5"><span ng-bind="'FETCHING_RECORDS' | translate"></span></td></tr>
+										<tr ng-show="!filter.user_id"><td colspan="5"><span ng-bind="'SELECT_USER_TO_SHOW_LOGS' | translate"></span></td></tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+</div>
+	

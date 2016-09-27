@@ -1,0 +1,55 @@
+<div class="roles" ng-controller="RoleController">
+	<div class="row">
+		<div class="col-md-12">
+			<main class="">
+				<div class="page-content">
+					<div class="search-wrapper">
+						<div class="search-filter">
+							<div class="search-header row horz-padding background-app-blue">
+								<span class="h3 color-white vertical-margin display-inline-block"><span ng-bind="'SEARCH_ROLE' | translate"></span></span>
+								<form class="pull-right form-inline">
+									<div class="form-group">
+										<label class=""><span ng-bind="'ROLE_NAME' | translate"></span></label>
+										<input class="form-control" type="text" ng-model="filter.name">
+									</div>
+									<button class="btn btn-primary" type="submit" ng-click="searchRole()"><span ng-bind="'SEARCH' | translate"></span></button>
+									<button class="btn btn-primary" type="reset" ng-click="resetSearch()"><span ng-bind="'RESET' | translate"></span></button>
+								</form>
+							</div>
+						</div>
+						<div class="search-table row">
+							<div class="col-md-12 padding background-app-blue h3 color-white"><span ng-bind="'SEARCH_RESULT' | translate"></span></div>
+							<div class="">
+								<table cellspacing="0" class="full-width">
+									<thead>
+										<tr>
+											<td class="hidden-xs"><span ng-bind="'ROLE_NAME' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'ROLE_DESCRIPTION' | translate"></span></td>
+											<td class="visible-xs-block">
+												<span ng-bind="'ROLE_NAME' | translate"></span><br/>
+												<span ng-bind="'ROLE_DESCRIPTION' | translate"></span>
+											</td>
+										</tr>
+									<thead>
+									<tbody ng-class="{ 'data-loading' : config.loading }">
+										<tr ng-repeat="role in rolesList track by $index" class="cursor-pointer" ng-click="rowClick(role)">
+											<td class="hidden-xs" ng-bind="role.name"></td>
+											<td class="hidden-xs" ng-bind="role.description"></td>
+											<td class="visible-xs-block">
+												<strong><span ng-bind="'ROLE_NAME' | translate"></span>:</strong><span ng-bind="role.name"></span><br/>
+												<strong><span ng-bind="'ROLE_DESCRIPTION' | translate"></span>:</strong><span ng-bind="role.description"></span><br/>
+											</td>
+										</tr>
+										<tr ng-show="!config.loading && !rolesList.length"><td colspan="4"><span ng-bind="'NO_RECORDS_FOUND' | translate"></span></td></tr>
+										<tr ng-show="config.loading"><td colspan="4"><span ng-bind="'FETCHING_RECORDS' | translate"></span></td></tr>
+									</tbody>					
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+</div>
+	

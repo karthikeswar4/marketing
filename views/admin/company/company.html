@@ -1,0 +1,120 @@
+<div class="company" ng-controller="CompanyController">
+	<div class="row">
+		<div class="col-md-12">
+			<main class="">
+				<div class="page-content">
+					<div class="search-wrapper">
+						<form class="search-filter" action="javascript:;">
+							<div class="search-header row horz-padding background-app-blue">
+								<span class="h3 color-white vertical-margin display-inline-block"><span ng-bind="'SEARCH_COMPANY' | translate"></span></span>
+								<div class="pull-right form-inline">
+									<div class="form-group">
+										<label class=""><span ng-bind="'COMPANY_ID' | translate"></span></label>
+										<input class="form-control" type="text" ng-model="filter.id">
+									</div>
+									<button class="btn btn-primary" type="submit" ng-click="searchCompany()"><span ng-bind="'SEARCH' | translate"></span></button>
+									<button class="btn btn-primary" type="reset" ng-click="resetSearch()"><span ng-bind="'RESET' | translate"></span></button>
+									<button class="btn btn-primary" type="reset" toggle-slide="#companyForm"></button>
+								</div>
+							</div>
+							<div id="companyForm" name="searchCompany" class="row background-app-tint-orange vertical-padding" style="display:none">
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'COMPANY_ID' | translate"></span></label>
+									<input class="form-control" type="text" ng-model="filter.id">
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'NAME' | translate"></span></label>
+									<input class="form-control" type="text" ng-model="filter.name">
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'PHONE' | translate"></span></label>
+									<input class="form-control" type="text" id="phone" ng-model="filter.phone">
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'CITY' | translate"></span></label>
+									<auto-complete ng-model="filter.city" display-field="city" value-field="city" search-url="api/lead/searchValue?field=city"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'STATE' | translate"></span></label>
+									<auto-complete ng-model="filter.state" display-field="state" value-field="state" search-url="api/lead/searchValue?field=state"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'COUNTRY' | translate"></span></label>
+									<auto-complete ng-model="filter.country" display-field="country" value-field="country" search-url="api/lead/searchValue?field=country"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'ACTIVATION_FROM' | translate"></span></label>
+									<input class="form-control" type="text" id="followup_date" ng-model="filter.followup_date">
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class=""><span ng-bind="'ACTIVATION_TO' | translate"></span></label>
+									<input class="form-control" type="text" ng-model="filter.activation_from">
+								</div>
+								</div>
+							</div>
+						</form>
+						<div class="search-table row">
+							<div class="col-md-12 padding background-app-blue h3 color-white"><span ng-bind="'SEARCH_RESULT' | translate"></span></div>
+							<div class="">
+								<table cellspacing="0" class="full-width">
+									<thead>
+										<tr>
+											<td class="hidden-xs"><span ng-bind="'COMPANY_NAME' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'EMAIL' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'ADDRESS' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'ACTIVATION_FROM' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'ACTIVATION_TO' | translate"></span></td>
+											<td class="visible-xs-block">
+												<span ng-bind="'COMPANY_NAME' | translate"></span><br/>
+												<span ng-bind="'EMAIL' | translate"></span>
+												<span ng-bind="'ADDRESS' | translate"></span>
+												<span ng-bind="'ACTIVATION_FROM' | translate"></span>
+												<span ng-bind="'ACTIVATION_TO' | translate"></span>
+											</td>
+										</tr>
+									<thead>
+									<tbody ng-class="{ 'data-loading' : config.loading }">
+										<tr ng-repeat="company in companiesList track by $index" class="cursor-pointer" ng-click="rowClick(company)">
+											<td class="hidden-xs" ng-bind="company.name"></td>
+											<td class="hidden-xs" ng-bind="company.email"></td>
+											<td class="hidden-xs" ng-bind="company.address_line1"></td>
+											<td class="hidden-xs" ng-bind="company.activation_from"></td>
+											<td class="hidden-xs" ng-bind="company.activation_to"></td>
+											<td class="visible-xs-block">
+												<strong><span ng-bind="'COMPANY_NAME' | translate"></span>:</strong><span ng-bind="company.name"></span><br/>
+												<strong><span ng-bind="'EMAIL' | translate"></span>:</strong><span ng-bind="company.email"></span><br/>
+												<strong><span ng-bind="'ADDRESS' | translate"></span>:</strong>
+													<span ng-bind="company.email"></span><br/>
+												<strong><span ng-bind="'ACTIVATION_FROM' | translate"></span>:</strong><span ng-bind="company.activation_from"></span><br/>
+												<strong><span ng-bind="'ACTIVATION_TO' | translate"></span>:</strong><span ng-bind="company.activation_to"></span><br/>
+s
+											</td>
+										</tr>
+										<tr ng-show="!config.loading && !companiesList.length"><td colspan="4"><span ng-bind="'NO_RECORDS_FOUND' | translate"></span></td></tr>
+										<tr ng-show="config.loading"><td colspan="4"><span ng-bind="'FETCHING_RECORDS' | translate"></span></td></tr>
+									</tbody>					
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+</div>
+	

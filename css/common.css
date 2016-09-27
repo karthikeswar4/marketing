@@ -1,0 +1,336 @@
+body, textarea {
+	font-family: "Marketing Font", "OpenSans", sans-serif;
+	font-size: 12px;
+	color: #333;
+}
+
+h1, h2, h3, h4, h5, h6, .mdl-layout__title, .mdl-layout-title, .mdl-button, .mdl-textfield .mdl-textfield__input, select, span, p {
+	font-family: "Marketing Font", "OpenSans", sans-serif !important;	
+}
+
+.display-block {
+	display: block !important;
+}
+.display-inline-block {
+	display: inline-block !important;
+}
+.display-flex {
+	display: flex !important;
+}
+.display-table {
+	display: table !important;
+}
+.display-table-cell {
+	display: table-cell !important;
+}
+.flex-1 {
+	flex: 1 1 auto;
+}
+.print-only {
+	display: none !important;
+}
+.full-width {
+	width: 100%;
+}
+.full-height {
+	height: 100%;
+}
+.height-auto {
+	height: auto;
+}
+.margin-auto {
+	margin: auto;
+}
+.margin-vertical-auto {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.margin-left-auto {
+	margin-left: auto;
+}
+.text-align-right {
+	text-align: right;
+}
+.text-align-center {
+	text-align: center;
+}
+.vertical-margin {
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+}
+.horz-margin {
+	margin-left: 10px !important;
+	margin-right: 10px !important;
+}
+.no-margin {
+	margin: 0 !important;
+}
+.no-horz-margin {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+.padding {
+	padding: 15px !important;
+}
+.small-padding {
+	padding: 5px !important;
+}
+.medium-padding {
+	padding: 10px !important;
+}
+.vertical-padding {
+	padding-top: 15px !important;
+	padding-bottom: 15px !important;
+}
+.no-vertical-padding {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+.horz-padding {
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+}
+.no-horz-padding {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.no-padding {
+	padding: 0 !important;
+}
+.no-top-padding {
+	padding-top: 0 !important;
+}
+.no-right-padding {
+	padding-right: 0 !important;
+}
+.no-left-padding {
+	padding-left: 0 !important;
+}
+.no-bottom-padding {
+	padding-left: 0 !important;
+}
+.no-vertical-margin {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+.no-top-margin {
+	margin-top: 0 !important;
+}
+.no-right-margin {
+	margin-right: 0 !important;
+}
+.cursor-pointer {
+	cursor: pointer;
+}
+.no-resize {
+	resize: none;
+}
+.overflow-visible {
+	overflow: visible;
+}
+.text-bold {
+	font-weight: bold;
+}
+.half-width {
+	width: 50%;
+}
+.float-right {
+	float: right !important;
+}
+.vertical-align-middle {
+	vertical-align: middle;
+}
+
+.pos-relative {
+	position: relative;
+}
+.pos-absolute {
+	position: absolute;
+}
+
+#notification {
+	height: 2px;
+	width: calc(100% - 20px);
+}
+
+.webui-popover p {
+	margin-bottom: 0px;
+}
+.webui-popover.success {
+	background-color: green;
+	color: #FFF;
+}
+.webui-popover.info {
+	background-color:blue;
+	color: #FFF;
+}
+.webui-popover.warning {
+	background-color:orange;
+	color: #FFF;
+}
+.webui-popover.error {
+	background-color: red;
+	color: #FFF;
+}
+
+a {
+	cursor: pointer;
+}
+
+a:disabled {
+	cursor: default;
+}
+
+
+.btn.fab-button {
+	border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.btn.fab-button:focus {
+	outline: none !important;
+}
+
+/*================== FIELD ANIMATIONS =====================*/
+
+.form-group {
+	position: relative;
+	margin-top: 15px;
+	z-index: 1;
+	border-bottom: 1px solid;
+    -webkit-transition: border-color ease-in-out .5s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .5s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .5s,box-shadow ease-in-out .15s;
+}
+.form-group:after {
+	content: "";
+	position: absolute;
+	transition: all ease-in-out .5s;
+	left: 50%;
+	right: 50%;
+	width: 0;
+	border-bottom: 1px solid red;
+}
+.form-group.is-focussed:after {
+	left: 0;
+	right: 0;
+	width: auto;
+}
+.form-group > label {
+	position: absolute;
+	bottom: 2px;
+	left: 5px;
+	top: auto;
+	z-index: -1;
+	transition: all .5s ease-in-out;
+	transform-origin: left;
+}
+.form-group > input, .form-group > select, .form-group > textarea {
+	background: transparent;
+	border: 0 !important;
+	box-shadow: none;
+    outline: none;
+    padding-bottom: 0px;
+    padding-left: 5px;
+}
+.form-group > input:focus, .form-group > select:focus, .form-group > textarea:focus {
+	box-shadow: none;
+}
+.form-group.is-focussed > label, .form-group.has-field-value > label {
+    transform: scale(0.8, 0.8) translateY(-22px);
+    top: 4px;
+}
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	background: transparent;
+}
+input[type=checkbox] {
+	width: 15px;
+	height: 15px;
+}
+[fixed-container] {
+	margin-bottom: 15px !important;
+}
+[fixed-bar] {
+	margin-bottom: 30px !important;
+	padding-bottom: 10px;
+}
+/*================== FIELD ANIMATIONS =====================*/
+
+/*================== NOTIFICATIONS =====================*/
+#notification {
+	height: 2px;
+	width: calc(100% - 20px);
+}
+.webui-popover {
+	left: auto !important;
+    right: 10px;
+}
+.webui-popover p {
+	margin-bottom: 0px;
+}
+.webui-popover.success {
+	background-color: green;
+	color: #FFF;
+}
+.webui-popover.info {
+	background-color:blue;
+	color: #FFF;
+}
+.webui-popover.warning {
+	background-color:orange;
+	color: #FFF;
+}
+.webui-popover.error {
+	background-color: red;
+	color: #FFF;
+}
+.popover {
+	display: auto;
+}
+/*================== NOTIFICATIONS =====================*/
+
+/*================== SECURITY =====================*/
+[rights-readonly], [rights-disabled] {
+	cursor: pointer !important;
+    pointer-events: none !important;
+}
+[rights-hidden] {
+	cursor: pointer !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+/*================== SECURITY =====================*/
+
+/* Tablet devices */
+@media (max-width: 839px) and (min-width: 480px) {
+	.print-only {
+		display: none !important;
+	}
+	#popupContainer .container {
+		min-width: 450px !important;
+		max-width: 450px !important;
+	}
+}
+
+/* Mobile devices */
+@media (max-width: 479px) {
+	.print-only {
+		display: none !important;
+	}
+	#popupContainer .container {
+		min-width: 300px !important;
+		max-width: 300px !important;
+	}
+}
+@media print {
+	.screen-only {
+		display: none !important;
+	}
+	.print-only {
+		display: block !important;
+	}
+	#popupContainer {
+		left: 20px !important;
+		top: 100px !important;
+	}
+}

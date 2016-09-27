@@ -1,0 +1,76 @@
+<div class="roles" ng-controller="RoleDetailController">
+	<div class="row">
+		<div class="col-md-12 job-header">
+			<div class="header row padding background-app-blue color-white">
+				<span class="h4"><span ng-bind="'CREATE_EDIT_ROLE' | translate"></span></span>
+			</div>
+		</div>
+		<div fixed-container fixed-attr="{ orientation: 'BOTTOM' }">
+			<div class="row">
+				<form name="roleForm" class="screen-only">
+					<div class="col-md-12 job-content padding">
+						<div class="col-md-12"><span class="error" ng-bind="errormessage"></span></div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class=""><span ng-bind="'ROLE_NAME' | translate"></span></label>
+								<input class="form-control" type="text" ng-model="data.name" field-security="admin_role" field-security-data-id="data.id">
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class=""><span ng-bind="'ROLE_DESCRIPTION' | translate"></span></label>
+								<textarea class="form-control no-resize" type="text" ng-model="data.description" field-security="admin_role" field-security-data-id="data.id"></textarea>
+							</div>
+						</div>
+						<div class="col-md-12 cursor-pointer no-top-margin no-padding"  ng-init="showCompanyDetails = 'true'" ng-click="showCompanyDetails = !showCompanyDetails">
+							<div class="section-header padding h4 background-app-tint-orange">
+								<span ng-bind="'ROLE_DETAIL' | translate"></span>
+								<i class="glyphicon glyphicon-chevron-down pull-right"  ng-if="!showCompanyDetails"></i>
+								<i class="glyphicon glyphicon-chevron-up pull-right"  ng-if="showCompanyDetails"></i>
+							</div>
+						</div>
+						<div class="col-md-12 no-horz-padding padding" ng-show="showCompanyDetails">				
+							<div class="row vertical-margin no-bottom-margin" ng-repeat="role in config.roleItems">
+								<div class="col-md-12">
+									<div class="checkbox col-md-3 no-margin">
+										<span ng-bind="role.name"></span>
+									</div>
+									<div class="checkbox col-md-2 no-margin">
+										<label ng-if="role.view">
+											<input type="checkbox" ng-model="role.can_view" field-security="admin_role" field-security-data-id="data.id">
+											<span ng-bind="'VIEW' | translate"></span>
+										</label>
+									</div>
+									<div class="checkbox col-md-2 no-margin">
+										<label ng-if="role.create">
+											<input type="checkbox" ng-model="role.can_create" field-security="admin_role" field-security-data-id="data.id">
+											<span ng-bind="'CREATE' | translate"></span>
+										</label>
+									</div>
+									<div class="checkbox col-md-2 no-margin">
+										<label ng-if="role.update">
+											<input type="checkbox" ng-model="role.can_update" field-security="admin_role" field-security-data-id="data.id">
+											<span ng-bind="'UPDATE' | translate"></span>
+										</label>
+									</div>
+									<div class="checkbox col-md-2 no-margin">
+										<label ng-if="role.delete">
+											<input type="checkbox" ng-model="role.can_delete" field-security="admin_role" field-security-data-id="data.id">
+											<span ng-bind="'DELETE' | translate"></span>
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 text-align-right background-color-white lead-button-bar" fixed-bar>
+							<button class="btn btn-primary" ng-click="goBack()" type="button"><span ng-bind="'CANCEL' | translate"></span></button>
+							<button class="btn btn-primary" ng-click="saveRole()"><span ng-bind="'SAVE' | translate"></span></button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	

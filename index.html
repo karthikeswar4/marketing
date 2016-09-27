@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Marketing Management System</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="shortcut icon" href="images/favicon.png" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="libs/jquery-datetime/jquery.datetimepicker.css" />
+		<link rel="stylesheet" href="css/font.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/app.css" />
+		<link rel="stylesheet" href="css/colors.css" />
+
+		<script src="libs/jquery/jquery-1.11.2.min.js"></script>
+		<script src="libs/angularjs/angular.min.js"></script>
+		<script src="libs/bootstrap/bootstrap.min.js"></script>
+		<script src="libs/bootstrap/ui-bootstrap-tpls-2.0.1.min.js"></script>
+		<script src="libs/angular-translate/angular-translate.min-2.6.0.js"></script>
+		<script src="libs/angular-translate/loader-static-files.js"></script> 
+	</head>
+	<body ng-app="app" ng-controller="BaseController" ng-cloak class="app">
+		<div id="appContainer" class="container-fluid gray">
+			<div class="row">
+				<header class="col-md-12" ng-show="state.$current.name != 'login'">
+	                <div id="progress-bar" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+	                <div id="notification"></div>
+				</header>
+				 <main class="main-layout col-md-12" ng-class="{'home': (state.$current.name == 'login') }">
+					<div class="main-wrapper">
+						<div ui-view="main" class="main-content" ng-class="{'no-padding': state.$current.name == 'login'}"></div>
+					</div>
+				</main>
+				<footer class="container-fluid full-width">
+					<div class="col-md-12">
+						<div class="pull-left"><span>Copyright &copy; <a href="//www.bonfringtech.com" target="_blank">Bonfring Technologies</a></sapn></div>
+						<div class="pull-right"><span>Powered By <a href="//www.bonfringtech.com" target="_blank"><img src="images/logo_bonfring.png" class="powered-logo"></a></sapn></div>
+					</div>
+				</footer>
+			<div>
+			<div id="popupContainer"></div>
+			<div id="confirmDialog"></div>
+		</div>
+
+		<!-- Library Files -->
+		<script src="libs/ocLazyLoad.min.js"></script>
+		<script src="libs/angular-ui-router/angular-ui-router.js"></script>
+		<script src="libs/angular-sanitize/angular-sanitize.min.js"></script>
+		
+		<script src="js/app.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/controllers/baseController.js"></script>
+		<script src="js/services/base/BaseService.js"></script>
+		<script src="js/services/appServices.js"></script>
+		<script src="js/directive/utilDirectives.js"></script>
+		<script src="js/directive/securityDirectives.js"></script>
+		<script src="js/directive/mapDirectives.js"></script>
+		
+		<script src="libs/lodash/lodash.min.js"></script>
+		<script src="libs/moment/moment.min.js"></script>
+		
+		<!--
+		<link rel="stylesheet" href="libs/jquery-ui/jquery-ui.min.css" />
+		<script src="libs/jquery-ui/jquery-ui.min.js"></script>
+		-->
+		
+		<script src="libs/popup/jquery.bpopup.min.js"></script>
+		<script src="libs/jquery-datetime/jquery.datetimepicker.full.min.js"></script>
+	</body>
+</html>

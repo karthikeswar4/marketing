@@ -1,0 +1,159 @@
+<div class="tasks" ng-controller="TaskDetailController">
+	<div class="row">
+		<div class="col-md-12 header">
+			<div class="job-header row padding background-app-blue color-white">
+				<span class="h4" translate="EDIT_TASK"></span>
+			</div>
+		</div>
+		<div class="col-md-12" fixed-container fixed-attr="{ orientation: 'BOTTOM' }">
+			<div class="row">
+				<div class="col-md-3 task-wrapper no-padding">
+					<div ng-repeat="task in leadOpportunityTasks" class="cursor-pointer task-item" ng-click="openTask(task)" ng-class="{'active background-app-gray': task.id == selectedTaskId }">
+						<div>
+							<span ng-bind="task.title"></span>
+						</div>
+					</div>
+				</div>
+				<form name="taskForm" class="col-md-9 no-padding">
+					<!--
+					<div class="col-md-12 job-action-bar">
+						<button type="button" class="btn btn-primary" ng-click="assignJob()" ng-show="data.id && !data.assignedTo.id && store.userInfo.role != 3" ng-disabled="store.userInfo.role == 3">Assign</button>
+						<button type="button" class="btn btn-primary" ng-click="reAssignJob()" ng-show="data.id && data.assignedTo.id && store.userInfo.role != 3">Re-Assign</button>
+					</div>-->
+					
+					<div class="col-md-12 padding">
+						<div class="col-md-12"><span class="error" ng-bind="errormessage"></span></div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="TASK_ID"></label>
+								<input class="form-control" type="text" ng-model="data.id" disabled>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="ASSIGNED_TO"></label>
+								<auto-complete ng-model="data.assigned_to" display-field="(firstname || '' )+ ' ' + (lastname || '')" value-field="id" search-url="api/user/getAllUsersAutoSuggest"></auto-complete>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="" translate="STATUS"></label>
+								<select class="form-control" ng-options="key as value for (key, value) in statusList" ng-model="data.status" material-model disabled></select>
+							</div>
+						</div>
+						<div class="col-md-12 cursor-pointer no-top-margin no-padding"  ng-init="showTaskDetails = 'true'" ng-click="showTaskDetails = !showTaskDetails">
+							<div class="section-header padding h4 background-app-tint-orange">
+								<span translate="TASK_DETAIL"></span>
+								<i class="glyphicon glyphicon-chevron-down pull-right"  ng-if="!showTaskDetails"></i>
+								<i class="glyphicon glyphicon-chevron-up pull-right"  ng-if="showTaskDetails"></i>
+							</div>
+						</div>
+						<div class="col-md-12 no-padding" ng-show="showTaskDetails">	
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" translate="DUE_DATE"></label>
+									<input class="form-control" type="text" ng-model="data.due_date" date-time-picker disabled>
+								</div>
+							</div>			
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" translate="DESCRIPTION"></label>
+									<input class="form-control" type="text" ng-model="data.description">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="additionalinfo">Additional Information</label>
+									<input class="form-control no-resize" type="text" id="additionalinfo" ng-model="data.additionalinfo" material-model ng-disabled="data.id && (store.userInfo.role == 3 && data.assignedToUserId != store.userInfo.id)">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" translate="CREATED_DATE"></label>
+									<input class="form-control" type="text" ng-model="data.createdDate" date-time-picker disabled>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 cursor-pointer no-top-margin"  ng-init="showOtherDetails = 'true'" ng-click="showOtherDetails = !showOtherDetails" ng-show="data.status > 3">
+							<h6 class="section-header">
+								<span>Contacted Detail</span>
+								<i class="material-icons margin-left-auto"  ng-if="!showOtherDetails">&#xE5CF;</i>
+								<i class="material-icons margin-left-auto"  ng-if="showOtherDetails">&#xE5CE;</i>
+							</h6>
+						</div>
+						<div class="col-md-12" ng-show="showOtherDetails && data.status > 2">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="contacteddate">Contacted Date</label>
+									<input class="form-control no-resize" type="text" id="contacteddate" ng-model="data.contacteddate" material-model material-date material-date-position="top" disabled>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="proposalnumber">Proposal Number</label>
+									<input class="form-control no-resize" type="text" id="proposalnumber" ng-model="data.proposalnumber" material-model disabled>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="proposalsubmitdate">Proposal Submit Date</label>
+									<input class="form-control no-resize" type="text" id="proposalsubmitdate" ng-model="data.proposalsubmitdate" material-model material-date material-date-position="top" disabled>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 cursor-pointer no-top-margin"  ng-init="showFollowupDetails = 'true'" ng-click="showFollowupDetails = !showFollowupDetails" ng-show="followup">
+							<h6 class="section-header">
+								<span>Followup Detail</span>
+								<i class="material-icons margin-left-auto"  ng-if="!showFollowupDetails">&#xE5CF;</i>
+								<i class="material-icons margin-left-auto"  ng-if="showFollowupDetails">&#xE5CE;</i>
+							</h6>
+						</div>
+						<div class="col-md-12" ng-show="showFollowupDetails && followup">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="followupthrough">Followup Through</label>
+									<input class="form-control no-resize" type="text" id="followupthrough" ng-model="followup.followupthrough" material-model disabled>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="followupdescription">Followup Description</label>
+									<input class="form-control no-resize" type="text" id="followupdescription" ng-model="followup.followupdescription" material-model disabled>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="followupdate">Followup Date</label>
+									<input class="form-control no-resize" type="text" id="followupdate" ng-model="followup.followupdate" material-model material-date material-date-position="top" disabled>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="followupstatus">Followup Status</label>
+									<input class="form-control no-resize" type="text" id="followupstatus" ng-model="followup.status" material-model material-upgrade disabled>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="resultoffollwup">Result of Followup</label>
+									<input class="form-control no-resize" type="text" id="resultoffollwup" ng-model="followup.resultoffollwup" material-model material-upgrade disabled>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="totalfollwup">Total No.Of Followup</label>
+									<input class="form-control no-resize" type="text" id="totalfollwup" ng-model="followup.total" material-model material-upgrade disabled>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 text-align-right background-color-white lead-button-bar" fixed-bar>
+							<button class="btn btn-primary" ng-click="goBack()" type="button" translate="CANCEL"></button>
+							<button class="btn btn-primary" ng-click="saveTask()" translate="SAVE"></button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	

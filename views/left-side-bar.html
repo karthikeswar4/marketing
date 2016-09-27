@@ -1,0 +1,43 @@
+<div class="row left-side-content">
+	<div class="panel-group" id="accordion">
+		<div class="text-right left-menu-slider-icon">
+			<img src="images/left_arrow.ico" class="slide-left" ng-click="toggleLeftMenu()">
+			<img src="images/right_arrow.ico" class="slide-right" ng-click="toggleLeftMenu()">
+		</div>
+		<div class="panel panel-default" ng-repeat="menu in baseConfig.leftMenus" ui-sref-active-eq="active background-app-dark-blue">
+			<div class="panel-heading cursor-pointer" data-toggle="collapse" data-parent="#accordion" data-target="#accordion_child_{{$index}}" aria-expanded>
+				<h4 class="panel-title">
+					<a ui-sref="{{menu.submenus ? 'javascript:;' : menu.state}}" menu-change>
+						<span ng-bind="menu.name | translate"></span>
+					</a>
+				</h4>
+			</div>
+			<div id="accordion_child_{{$index}}" class="panel-collapse collapse" ng-if="menu.submenus">
+				<div class="panel-body">
+					<div ng-include src="'left-side-menu'"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+<script type="text/ng-template" id="left-side-menu">
+	<div class="panel-group" id="accordion_child_child">
+		<div class="panel panel-default" ng-repeat="menu in menu.submenus" ui-sref-active-eq="active background-app-dark-blue" >
+			<div class="panel-heading cursor-pointer" data-toggle="collapse" data-parent="#accordion_child_child" data-target="#accordion_child_child_child_{{$index}}" aria-expanded>
+				<h4 class="panel-title">
+					<a ui-sref="{{menu.submenus ? 'javascript:;' : menu.state}}" 
+						menu-change>
+						<span ng-bind="menu.name | translate"></span>
+					</a>
+				</h4>
+			</div>
+			<div id="accordion_child_child_child_{{$index}}" class="panel-collapse collapse" ng-if="menu.submenus">
+				<div class="panel-body">
+					<div ng-include src="'left-side-menu'"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>

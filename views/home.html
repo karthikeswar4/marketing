@@ -1,0 +1,20 @@
+<div class="row main-content" ng-controller="HomeController">
+	<div class="menu container-fluid full-width background-app-blue border-color-white">
+		<ul class="list-inline">
+			<li class="border-after-color-app-blue" ng-repeat="menu in baseConfig.menus" ui-sref="{{menu.state}}" ui-sref-active="active border-before-color-app-dark-blue background-app-dark-blue border-after-color-app-dark-blue"><span ng-bind="menu.name | translate" class="border-after-color-white"></span></li>
+			<li class="pull-right">
+				<i class="glyphicon glyphicon-calendar" ui-sref="home.calendar"></i>
+				<span ng-click="clearCache()" ng-bind="'CLEAR_CACHE' | translate"></span>
+				<span ng-click="logout()" ng-bind="'LOGOUT' | translate"></span>
+			</li>
+		</ul>
+	</div>
+	<div class="main-content-pane content row no-horz-margin background-app-tint-blue display-table full-width">
+		<div class="left-bar display-table-cell" ng-show="(baseConfig.leftMenus && baseConfig.leftMenus.length > 0)" ng-class="{ 'collapse-menu': baseConfig.slideLeftMenu }">
+			<div ng-include src="'views/left-side-bar.html'"></div>
+		</div>
+		<div class="content-area horz-padding no-top-padding background-color-white display-table-cell">
+			<div ui-view="content"></div>
+		</div>
+	</div>
+</div>

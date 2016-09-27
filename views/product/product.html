@@ -1,0 +1,142 @@
+<div class="products" ng-controller="ProductSearchController">
+	<div class="row">
+		<div class="col-md-12">
+			<main class="">
+				<div class="page-content">
+					<div class="search-wrapper">
+						<form class="search-filter" action="javascript:;" ng-submit="searchProducts()">
+							<div class="search-header row horz-padding background-app-blue">
+								<span class="h3 color-white vertical-margin display-inline-block" translate="SEARCH_PRODUCT"></span>
+								<div class="pull-right form-inline">
+									<div class="form-group">
+										<label class="" translate="CAMPAIGN_ID"></label>
+										<input class="form-control" type="text" ng-model="filter.campaign_id">
+									</div>
+									<button class="btn btn-primary" type="submit" translate="SEARCH"></button>
+									<button class="btn btn-primary" type="reset" ng-click="resetSearch()" translate="RESET"></button>
+									<button class="btn btn-primary" type="button" toggle-slide="#opportunityForm"></button>
+								</div>
+							</div>
+							<div id="opportunityForm" name="searchLeads" class="row background-app-tint-orange vertical-padding" style="display:none">
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" translate="OPPORTUNITY_ID"></label>
+									<input class="form-control" type="text" ng-model="filter.opportunity_id">
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" translate="EMPLOYEE_NAME"></label>
+									<auto-complete ng-model="filter.user_id" display-field="name" value-field="id" search-url="api/user/getUsersByName"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="company_name" translate="COMPANY_NAME"></label>
+									<input class="form-control" type="text" id="company_name" ng-model="filter.company_name">
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" for="phone" translate="PHONE"></label>
+									<input class="form-control" type="text" id="phone" ng-model="filter.phone">
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="" translate="STATUS"></label>
+									<select class="form-control" ng-options="value as key | translate for (key, value) in statusList" ng-model="filter.status" material-model>
+										<option value=""></option>
+									</select>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">Area</label>
+									<auto-complete ng-model="filter.area" display-field="area" value-field="area" search-url="api/lead/searchValue?field=area"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">City</label>
+									<auto-complete ng-model="filter.city" display-field="city" value-field="city" search-url="api/lead/searchValue?field=city"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">State</label>
+									<auto-complete ng-model="filter.state" display-field="state" value-field="state" search-url="api/lead/searchValue?field=state"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">Country</label>
+									<auto-complete ng-model="filter.country" display-field="country" value-field="country" search-url="api/lead/searchValue?field=country"></auto-complete>
+								</div>
+								</div>
+								<div class="col-md-4">
+								<div class="form-group">
+									<label class="">Industry</label>
+									<auto-complete ng-model="filter.industry" display-field="industry" value-field="industry" search-url="api/lead/searchValue?field=industry"></auto-complete>
+								</div>
+								</div>
+							</div>
+						</form>
+						<div class="search-table row">
+							<div class="col-md-12 padding background-app-blue h3 color-white">Search Result</div>
+							<div class="">
+								<table cellspacing="0" class="full-width">
+									<thead>
+										<tr>
+											<td class="hidden-xs"><span ng-bind="'LEAD_ID' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'COMPANY_NAME' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'CONTACT_PERSON' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'PHONE' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'STATUS' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'FOLLOWUP_DATE' | translate"></span></td>
+											<td class="hidden-xs"><span ng-bind="'ASSIGNED_TO' | translate"></span></td>
+											<td class="visible-xs-block">
+												<span><span ng-bind="'LEAD_ID' | translate"></span></span><br/>
+												<span><span ng-bind="'COMPANY_NAME' | translate"></span></span><br/>
+												<span><span ng-bind="'CONTACT_PERSON' | translate"></span></span><br/>
+												<span><span ng-bind="'PHONE' | translate"></span></span><br/>
+												<span><span ng-bind="'STATUS' | translate"></span></span><br/>
+												<span><span ng-bind="'FOLLOWUP_DATE' | translate"></span></span><br/>
+												<span><span ng-bind="'ASSIGNED_TO' | translate"></span></span>
+											</td>
+										</tr>
+									<thead>
+									<tbody>
+										<tr ng-repeat="job in contactsList track by $index" class="cursor-pointer" ng-click="openContact(job)" ng-class="{'won' : job.status == 6, 'lost': job.status == 7}">
+											<td class="hidden-xs"><span ng-bind="job.id"></span><span ng-show="job.inprogressfollowupCount == 0 && (job.status == 4 || job.status == 5)"><i class="material-icons">&#xE566;</i></span></td>
+											<td class="hidden-xs" ng-bind="job.companyname">Company Name</td>
+											<td class="hidden-xs" ng-bind="job.contactperson">Contact Person</td>
+											<td class="hidden-xs" ng-bind="job.phone">Phone</td>
+											<td class="hidden-xs" ng-bind="statusList[job.status]">Status</td>
+											<td class="hidden-xs" ng-bind="getDate(job.followupDate) | date:'dd/MM/yyyy'">dateCreated</td>
+											<td class="hidden-xs">
+												<select ng-options="user.id as user.name for user in usersList" ng-model="job.assignedToUserId"disabled></select>
+											</td>
+											<td class="visible-xs-block">
+												<strong><span ng-bind="'LEAD_ID' | translate"></span><span>: </span></strong><span ng-bind="job.id"></span><span ng-show="job.inprogressfollowupCount == 0 && (job.status == 4 || job.status == 5)"><i class="material-icons">&#xE566;</i></span><br/>
+												<strong><span ng-bind="'COMPANY_NAME' | translate"></span><span>: </span></strong><span ng-bind="job.companyname"></span><br/>
+												<strong><span ng-bind="'CONTACT_PERSON' | translate"></span><span>: </span></strong><span ng-bind="job.contactperson"></span><br/>
+												<strong><span ng-bind="'PHONE' | translate"></span><span>: </span></strong><span ng-bind="job.phone"></span><br/>
+												<strong><span ng-bind="'STATUS' | translate"></span><span>: </span></strong><span ng-bind="statusList[job.status]"></span><br/>
+												<strong><span ng-bind="'FOLLOWUP_DATE' | translate"></span><span>: </span></strong><span ng-bind="getDate(job.followupDate) | date:'dd/MM/yyyy'"></span><br/>
+												<strong><span ng-bind="'ASSIGNED_TO' | translate"></span><span>: </span></strong><select ng-options="user.id as user.name for user in usersList" ng-model="job.assignedToUserId"disabled></select>
+											</td>
+										</tr>
+										<tr ng-show="!config.loading && !contactsList.length"><td colspan="8"><span ng-bind="'NO_RECORDS_FOUND' | translate"></span></td></tr>
+										<tr ng-show="config.loading"><td colspan="8"><span ng-bind="'FETCHING_RECORDS' | translate"></span></td></tr>
+									</tbody>					
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+</div>
+	

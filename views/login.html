@@ -1,0 +1,31 @@
+<div class="login-wrapper full-width row">
+	<div class="col-md-12">
+		<div class="col-md-6 col-md-offset-3 login background-app-blue" ng-controller="LoginController">
+			<div class="login-bar">
+				<span class="page-header-name cursor-pointer margin-auto"><span ng-bind="'MARKETING_MANAGEMENT_SYSTEM' | translate"></span></span>
+			</div>
+			<form class="login-form">			
+				<div class="form-group">
+					<label class=""><span ng-bind="'USERNAME' | translate"></span></label>
+					<input class="form-control" type="text" id="username" ng-model="login.username" material-model>
+				</div>
+				<div class="form-group">
+					<label class=""><span ng-bind="'PASSWORD' | translate"></span></label>
+					<input class="form-control" type="password" id="password" ng-model="login.password" material-model>
+				</div>
+				<div>
+					<p class="error" ng-bind="errormessage"></p>
+				</div>
+				<div class="text-align-right">
+					<button class="btn btn-primary" ng-click="loginAction()">
+						<span ng-bind="'LOGIN' | translate"></span>
+					</button>
+				</div>
+				<div>
+					<span class="padding color-white"><a class="color-white" ui-sref="forgotpassword"><span ng-bind="'FORGOT_PASSWORD' | translate"></span></a></span>
+					<span class="padding color-white"><a class="color-white" ui-sref="registration"><span ng-bind="'REGISTER_USER' | translate"></span></a></span>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

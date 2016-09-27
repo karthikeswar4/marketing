@@ -1,0 +1,43 @@
+.primary-bgcolor {
+	background-color: #10AEAD !important;
+}
+.primary-bordercolor {
+	border-color: #AAF3F0 !important;
+}
+.secondory-bgcolor {
+	background-color: #ECD6D8 !important;
+}
+.accent-bgcolor {
+	background-color: #C67603 !important;
+}
+.light-bgcolor {
+	background-color: #FFF !important;
+}
+.primary-color {
+	color: orange !important;
+}
+.light-color {
+	color: #FFF !important;
+}
+
+table thead {
+	background-color: #028887;
+	color: #FFF;
+}
+table thead th, table thead td {
+	border-color: #FFF;
+}
+table tbody tr:nth-child(even) {
+	background-color: #D9EDEC;
+	color: #028887;
+}
+table tbody tr:nth-child(even) td {
+	border-color: #FFF;
+}
+table tbody tr:nth-child(odd) {
+	background-color: #FFF;
+	color: #028887;
+}
+table tbody tr:nth-child(odd) td {
+	border-color: #D9EDEC;
+}

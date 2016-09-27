@@ -1,0 +1,6 @@
+RewriteEngine On    # Turn on the rewriting engine
+
+RewriteRule ^api/(.+)$  dispatcher.php?url=$1&%{QUERY_STRING}  [NS,L]
+
+
+

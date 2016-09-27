@@ -1,0 +1,62 @@
+<div class="create add-employee">
+	<div  ng-controller="EmployeeController" class="mdl-layout mdl-js-layout mdl-layout--fixed-header height-auto">
+		<form name="employeeForm" class="mdl-grid container screen-only">
+			<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone header">
+				<div class="header">
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored back-button" ng-click="goBackPage()" type="button">
+						<i class="material-icons">&#xE5C4;</i>
+					</button>
+					<span class="heading">Create / Edit Employee</span>
+				</div>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone action-bar">
+				<!--<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-click="printJob()" ng-hide="!data.id || store.userInfo.role == 2 || store.userInfo.role == 3">Print Job</button>-->
+			</div>
+			<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone mdl-grid content">
+				<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone"><span class="error" ng-bind="errormessage"></span></div>
+				<div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" ng-model="data.name" material-model material-required>
+						<label class="mdl-textfield__label">Name</label>
+					</div>
+				</div>
+				<div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" ng-model="data.phone" material-model material-required>
+						<label class="mdl-textfield__label">Phone</label>
+					</div>
+				</div>
+				<div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<textarea class="mdl-textfield__input no-resize" ng-model="data.address" material-model material-required></textarea>
+						<label class="mdl-textfield__label">Address</label>
+					</div>
+				</div>
+				<div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" ng-model="data.place" material-model>
+						<label class="mdl-textfield__label">Place</label>
+					</div>
+				</div>
+				<div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<select class="mdl-textfield__input" ng-model="data.designation" material-model material-required>
+							<option value="driver">Driver</option>
+							<option value="cleaner">Cleaner</option>
+						</select>
+						<label class="mdl-textfield__label">Designation</label>
+					</div>
+				</div>
+				
+				<div class="mdl-cell mdl-cell--12-col-desktop mdl-cell--8-col-tablet mdl-cell--4-col-phone text-align-right">
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" ng-click="goBackPage()" type="button">
+					  Cancel
+					</button>
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" ng-click="saveEmployee()">
+					  Submit
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

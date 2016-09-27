@@ -1,0 +1,21 @@
+<div class="address-list" ng-controller="NotificationController">
+	<div class="padding screen-only">
+		<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="window.print()">
+		  Print
+		</button>
+	</div>
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cell--6-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone address" 
+				ng-class="{'address-type-changed' : address.type == addressList[$index + 1].type}" 
+				ng-repeat="address in addressList">
+			<div class="address-inner">
+				<div ng-bind="address.name"></div>
+				<div ng-bind="address.address1"></div>
+				<div ng-bind="address.address2"></div>
+				<div ng-bind="address.address3"></div>
+				<div><span ng-bind="address.city"></span><span ng-if="address.city"> - </span><span ng-bind="address.pin"></span></div>
+				<div><span ng-if="address.phone">Phone:</span><span ng-bind="address.phone"></span></div>
+			</div>
+		</div>
+	</div>
+</div>
